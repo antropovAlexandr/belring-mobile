@@ -1,0 +1,57 @@
+{
+  "parser": "babel-eslint",
+    "extends": ["standard", "standard-react"],
+    "plugins": ["babel", "react", "promise", "import", "import-order", "react-hooks" ],
+    "env": {
+  "browser": true,
+      "jest": true
+},
+  "rules": {
+//    "indent": ["error", 2],
+  "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+      "semi": [2, "never"],
+      "key-spacing": 0,
+      "jsx-quotes": [2, "prefer-single"],
+      "max-len": [
+    2,
+    {
+      "code": 120,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true
+    }
+  ],
+      "object-curly-spacing": [2, "always"],
+      "react/prop-types": 0,
+      "comma-dangle": [2, "always-multiline"],
+      "import-order/import-order": 2,
+      "quote-props": [2, "as-needed"],
+      "no-labels": [2, { "allowLoop": true }],
+      "no-console": [2, { "allow": ["warn", "error"] }],
+      "react/sort-comp": [
+    2,
+    {
+      "order": ["static-methods", "lifecycle", "/^on.+$/", "everything-else", "render"]
+    }
+  ],
+      "no-unused-vars": [
+    "error",
+    { "vars": "all", "args": "all", "ignoreRestSiblings": true, "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+  ],
+      "curly": [2, "all"],
+      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+},
+  "settings": {
+  "react": {
+    "pragma": "React",  // Pragma to use, default to "React"
+        "version": "detect" // React version. "detect" automatically picks the version you have installed.
+  },
+  "linkComponents": [
+    // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
+    "Hyperlink",
+    {"name": "Link", "linkAttribute": "to"}
+  ]
+}
+}

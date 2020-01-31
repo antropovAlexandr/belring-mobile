@@ -1,0 +1,5 @@
+export const APP_LOADING_SCREEN = 'APP_LOADING_SCREEN'
+export const MAIN_SCREEN = 'MAIN_SCREEN'
+export const APP_STACK = 'APP_STACK'
+export const LOGIN_SCREEN = 'LOGIN_SCREEN'
+export const LOGIN_STACK = 'LOGIN_STACK'
