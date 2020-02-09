@@ -1,28 +1,45 @@
-import { createActions, createReducer } from 'reduxsauce'
+import {createActions, createReducer} from 'reduxsauce'
 
 const initialState = {
-  token: false,
-  loading: false,
-  error: '',
-}
+    token: null,
+    refreshToken: null,
+    loading: false,
+    error: null,
+};
 
 const {Types, Creators} = createActions({
-  login: ['payload'],
-  logout: [],
-})
+    loginRequest: ['email', 'password'],
+    loginSuccess: ['token', 'refreshToken'],
+    registrationRequest: ['email', 'password', 'firstName', 'lastName', 'phone'],
+    registrationSuccess: ['token', 'refreshToken'],
+    resetPasswordRequest: ['email'],
+    resetPasswordSuccess: [],
+    setUserError: ['error'],
+    clearUserError: [],
+    logout: [],
+});
 
-const login = (state) => {
-  return {
-    ...state,
-    token: true,
-  }
-}
+const loginRequest = (state) => ({...state, loading: true});
+const loginSuccess = (state, { token, refreshToken }) => ({ ...state, loading: false, token, refreshToken });
+const registrationRequest = (state) => ({...state, loading: true});
+const registrationSuccess = (state, { token, refreshToken }) => ({ ...state, loading: false, token, refreshToken });
+const resetPasswordRequest = (state) => ({...state, loading: true});
+const resetPasswordSuccess = (state) => ({...state, loading: false});
+const setUserError = (state, { error }) => ({...state, loading: false, error});
+const clearUserError = (state) => ({...state, error: null});
 
-export const LOGOUT = () => initialState
+export const LOGOUT = () => initialState;
 
 export const reducer = createReducer(initialState, {
-  [Types.LOGIN]: login,
-  LOGOUT,
-})
+    [Types.LOGIN_REQUEST]: loginRequest,
+    [Types.LOGIN_SUCCESS]: loginSuccess,
+    [Types.REGISTRATION_REQUEST]: registrationRequest,
+    [Types.REGISTRATION_SUCCESS]: registrationSuccess,
+    [Types.RESET_PASSWORD_REQUEST]: resetPasswordRequest,
+    [Types.RESET_PASSWORD_SUCCESS]: resetPasswordSuccess,
+    [Types.SET_USER_ERROR]: setUserError,
+    [Types.CLEAR_USER_ERROR]: clearUserError,
+    LOGOUT,
+});
 
-export { Types as UserTypes, Creators as UserActions }
+export {Types as UserTypes, Creators as UserActions}

@@ -1,3 +1,6 @@
+import { DefaultTheme } from 'react-native-paper';
+import { blue } from './colors';
+
 export const fonts = {
   regular: 'Muli-Regular', // using
   italic: 'JosefinSans-Italic',
@@ -12,28 +15,7 @@ export const fonts = {
 };
 
 export const colors = {
-  primary: '#1883C6',
-  primaryLighten: '#f2424b',
-  facebookBLue: '#3b5998',
-  googleRed: '#db3236',
-  white: '#fff',
-  gray: '#454545',
-  darkGray: '#464546',
-  gainsboro: '#d8d8d8',
-  danger: '#FF151F',
-  persianRed: '#DF2C2C',
-  success: '#4ECE3D',
-  disabled: '#b5b5b5',
-  lime: '#c5ffe2',
-  grayish: '#efe7e7',
-  nobel: '#9B9B9B',
-  nobelLight: '#a2a2a2',
-  darkBlue: '#1875af',
-  lightBlue: '#40ACEF',
-  greenChart: '#1ABF5F',
-  orangeChart: '#D5891B',
-  blueChart: '#1883C6',
-  grayChart: '#ACACAC',
+
 };
 
 export const offsets = {
@@ -46,10 +28,12 @@ export const offsets = {
   extraLarge: 35,
 };
 
-export const colorsForCharts = [
-  colors.blueChart,
-  colors.greenChart,
-  colors.orangeChart,
-  colors.grayChart,
-];
+export const paperTheme = {
+    ...DefaultTheme,
+    roundness: 2,
+    colors: {
+        ...DefaultTheme.colors,
+        primary: blue,
+    },
+};
 

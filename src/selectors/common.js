@@ -6,11 +6,11 @@ export const getAllReducersLoadingStates = (state) => {
       ? [...acc, state[item].loading]
       : [...acc]
   }, [])
-}
+};
 
 export const appLoadingSelector = createSelector(
   [getAllReducersLoadingStates],
   (reducersLoadingStates) => {
     return reducersLoadingStates.some((item) => item)
   },
-)
+);

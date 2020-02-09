@@ -25,7 +25,7 @@ export function* reset(action) {
 }
 
 export function* goBack(action) {
-  const { count = 1 } = action.payload;
+  const { count = 1 } = action;
 
   yield put(
     StackActions.pop({
