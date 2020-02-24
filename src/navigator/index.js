@@ -7,10 +7,12 @@ import {
   APP_LOADING_SCREEN,
   APP_STACK,
   LOGIN_STACK,
-} from 'Consts/screenNames';
-import AppLoadingScreen from 'Screens/appLoadingScreen';
+  INTRODUCTION_STACK
+} from '../screens/constants';
+import AppLoadingScreen from '../screens/appLoadingScreen';
 import AppStack from './appNavigator';
 import LoginStack from './authNavigator';
+import IntroductionStack from "./IntroductionNavigator";
 
 const customCreateSwitchNavigator = Platform.select({
   ios: createAnimatedSwitchNavigator,
@@ -20,7 +22,8 @@ const customCreateSwitchNavigator = Platform.select({
 export default customCreateSwitchNavigator({
   [APP_LOADING_SCREEN]: AppLoadingScreen,
   [APP_STACK]: AppStack,
-  [LOGIN_STACK]: LoginStack
+  [LOGIN_STACK]: LoginStack,
+  [INTRODUCTION_STACK]: IntroductionStack,
 }, {
   initialRouteName: APP_LOADING_SCREEN,
   transition: (

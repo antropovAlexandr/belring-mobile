@@ -10,7 +10,7 @@ import {
     PASSWORD_RECOVERY,
     REGISTRATION_NOTIFICATION_SCREEN,
     REGISTRATION_SCREEN
-} from '../consts/screenNames'
+} from '../screens/constants'
 import {defaultConfig} from './configs'
 
 

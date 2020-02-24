@@ -11,3 +11,4 @@ export const UPDATE_EMAIL = '/update-email';
 export const UPDATE_PASSWORD = '/update-password';
 export const UPDATE_PERSONAL_DATA = '/update-personal-data';
 export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/${id}`;
+export const GET_PLACES_ENDPOINT = '/places';

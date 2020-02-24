@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {Button} from "react-native-paper";
 import {useTranslation} from "react-i18next";
 import {NavigationActions} from "../../redux/reducers/navigatorReducer";
-import {LOGIN_SCREEN} from "../../consts/screenNames";
+import {LOGIN_SCREEN} from "../constants";
 import styles from './styles';
 
 const logoImg = require('assets/images/logo/logo.png');
