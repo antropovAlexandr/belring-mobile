@@ -3,6 +3,7 @@ import {createActions, createReducer} from 'reduxsauce'
 const initialState = {
     token: null,
     refreshToken: null,
+    isFirstEntry: true,
     loading: false,
     error: null,
 };
@@ -17,6 +18,7 @@ const {Types, Creators} = createActions({
     setUserError: ['error'],
     clearUserError: [],
     logout: [],
+    setIsFirstEntry: [],
 });
 
 const loginRequest = (state) => ({...state, loading: true});
@@ -27,6 +29,7 @@ const resetPasswordRequest = (state) => ({...state, loading: true});
 const resetPasswordSuccess = (state) => ({...state, loading: false});
 const setUserError = (state, { error }) => ({...state, loading: false, error});
 const clearUserError = (state) => ({...state, error: null});
+const setIsFirstEntry = (state) => ({...state, isFirstEntry: false});
 
 export const LOGOUT = () => initialState;
 
@@ -39,6 +42,7 @@ export const reducer = createReducer(initialState, {
     [Types.RESET_PASSWORD_SUCCESS]: resetPasswordSuccess,
     [Types.SET_USER_ERROR]: setUserError,
     [Types.CLEAR_USER_ERROR]: clearUserError,
+    [Types.SET_IS_FIRST_ENTRY]: setIsFirstEntry,
     LOGOUT,
 });
 
