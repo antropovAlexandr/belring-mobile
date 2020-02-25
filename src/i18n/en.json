@@ -29,6 +29,10 @@
     "close": "Close",
     "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
   },
+  "languageSelect": {
+    "russian": "Russian",
+    "eglish": "Eglish"
+  },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
     "password": "Password length must be at least 4 characters",

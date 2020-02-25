@@ -1,7 +1,7 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import {NavigationActions} from '../reducers/navigatorReducer'
 import {UserActions, UserTypes} from '../reducers/userReducer'
-import {APP_STACK, LOGIN_STACK, REGISTRATION_NOTIFICATION_SCREEN} from '../../consts/screenNames'
+import {APP_STACK, LOGIN_STACK, REGISTRATION_NOTIFICATION_SCREEN} from '../../screens/constants'
 
 function sagasWithClient(client) {
     function* logout() {
