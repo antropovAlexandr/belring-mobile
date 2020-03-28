@@ -1,5 +1,6 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import {NavigationActions} from '../reducers/navigatorReducer'
+import {InitialDataActions} from '../reducers/initialDataReducer'
 import {UserActions, UserTypes} from '../reducers/userReducer'
 import {APP_STACK, LOGIN_STACK, REGISTRATION_NOTIFICATION_SCREEN} from '../../screens/constants'
 
@@ -12,6 +13,7 @@ function sagasWithClient(client) {
         try {
             const { token, refreshToken } = yield call(client.logIn, {email, password});
             yield put(UserActions.registrationSuccess(token, refreshToken));
+            yield put(InitialDataActions.initialDataRequest(token));
             yield put(NavigationActions.navigate({ routeName: APP_STACK }));
         } catch (e) {
             yield put(UserActions.setUserError(e));
