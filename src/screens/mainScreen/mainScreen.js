@@ -18,7 +18,15 @@ const MainScreen = () => {
                         title: 'places.titleEmpty',
                         description: 'places.descriptionEmpty',
                 }}))}
-            >test</Button>
+            >New place</Button>
+
+            <Button
+                mode="outlined"
+                onPress={() => dispatch(NavigationActions.navigate({routeName: EMPTY_ITEMS_SCREEN, params: {
+                        title: 'addEditObservation.titleEmpty',
+                        description: 'addEditObservation.descriptionEmpty',
+                    }}))}
+            >New observations</Button>
         </>
     )
 };

@@ -14,6 +14,8 @@ const fallbackLanguage = { languageTag: LANG_TYPES.EN, isRTL: false };
 const defaultLanguage =
     RNLocalize.findBestAvailableLanguage([LANG_TYPES.EN, LANG_TYPES.RU]) || fallbackLanguage;
 
+export const getLanguage =  () => i18n.language;
+
 i18n.use(initReactI18next).init({
     lng: defaultLanguage.languageTag,
     resources: {

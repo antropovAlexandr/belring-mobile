@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'react-native-paper';
-import { blue } from './colors';
+import { blue, white } from './colors';
 
 export const fonts = {
   regular: 'Muli-Regular', // using
@@ -33,6 +33,7 @@ export const paperTheme = {
     roundness: 2,
     colors: {
         ...DefaultTheme.colors,
+        background: white,
         primary: blue,
     },
 };

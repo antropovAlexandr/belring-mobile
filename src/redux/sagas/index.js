@@ -2,9 +2,9 @@ import {all, takeLatest} from 'redux-saga/effects'
 import {navigate, reset, goBack} from './navigationSaga'
 import usersSagasWithClient from './userSagas';
 import placesSagasWithClient from './placesSagas';
+import initialDataSagasWithClient from './initialDataSagas';
 
 import {NavigationTypes} from '../reducers/navigatorReducer'
-import {UserTypes} from '../reducers/userReducer'
 
 import * as api from '../../services/api'
 
@@ -15,5 +15,6 @@ export default function* root() {
         takeLatest(NavigationTypes.GO_BACK, goBack),
         usersSagasWithClient(api).watchActions(),
         placesSagasWithClient(api).watchActions(),
+        initialDataSagasWithClient(api).watchActions(),
     ])
 }

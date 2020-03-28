@@ -22,10 +22,10 @@ function sagasWithClient(client) {
     }
 
     function* watchActions(): Generator<*, *, *> {
-        yield takeLatest(PlacesTypes.LOGIN_REQUEST, loadPlaces);
+        yield takeLatest(PlacesTypes.LOAD_PLACES_REQUEST, loadPlaces);
     }
 
-    return {login, logout, watchActions};
+    return {watchActions};
 }
 
 export default sagasWithClient;
