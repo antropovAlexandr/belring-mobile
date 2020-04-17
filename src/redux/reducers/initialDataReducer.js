@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const {Types, Creators} = createActions({
-    initialDataRequest: ['token'],
+    initialDataRequest: [],
     initialDataSuccess: ['data'],
     initialDataError: ['error'],
 });

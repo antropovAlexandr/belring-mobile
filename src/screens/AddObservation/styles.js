@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import {black087, black06, grayMedium} from '../../consts/colors'
+import {black02, black087, black06, greenLight, whiteGray} from '../../consts/colors'
 
 export default StyleSheet.create({
     scrollContainer: {
@@ -42,11 +42,30 @@ export default StyleSheet.create({
         letterSpacing: 0.25,
         lineHeight: 20
     },
-    dropdown: {
-        paddingLeft: 10,
-        marginBottom: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: grayMedium,
+    uploadPhoto: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 122,
+        width: 122,
+        borderColor: black02,
+        borderWidth: 1,
+        borderRadius: 4,
+        borderStyle: 'dashed',
+        backgroundColor: whiteGray,
+    },
+    photo: {
+        height: 122,
+        width: 122,
+    },
+    closeBtn: {
+        position: 'absolute',
+        right:     0,
+        top:      0,
+        zIndex: 100,
+    },
+    mobileAppText: {
+        color: greenLight,
     }
 });
 

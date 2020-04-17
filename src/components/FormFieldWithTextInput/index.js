@@ -2,8 +2,10 @@ import React from 'react';
 import { TextInput, HelperText } from "react-native-paper";
 import { Field } from 'react-final-form';
 import { View } from "react-native";
+import {useTranslation} from "react-i18next";
 
 const FormFieldWithTextInput = ({ name, style, ...inputProps }) => {
+    const {t} = useTranslation();
     return (
         <Field
             {...{ name }}
@@ -14,12 +16,13 @@ const FormFieldWithTextInput = ({ name, style, ...inputProps }) => {
                         <TextInput
                             {...input}
                             {...inputProps}
-                            error={isError} />
+                            error={isError}
+                        />
                         <HelperText
                             type="error"
                             visible={isError}
                         >
-                            {meta.error}
+                            {t(meta.error)}
                         </HelperText>
                     </View>
                 );

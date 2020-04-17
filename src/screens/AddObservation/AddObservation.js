@@ -1,35 +1,48 @@
-import React, {useState, useCallback} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {Form} from 'react-final-form'
+import React from 'react'
+import {View} from "react-native";
 import {useTranslation} from "react-i18next";
-import ErrorModal from "../../components/ErrorModal";
-import {availableSteps} from "./constants";
-import AddObservationSteps from "./AddObservationSteps";
+import arrayMutators from 'final-form-arrays';
+import {FIELD_NAME} from "./constants";
+import Wizard from "../../components/Wizard";
+
+import TagInformationStep from "./ObservationSteps/TagInformationStep";
+import BirdInformationStep from "./ObservationSteps/BirdInformationStep";
+import FooterNav from "./FooterNav";
+import {birdInformationValidation, obstaclesInformationValidation, tagInformationValidation} from "./validation";
+import ObstaclesInformationStep from "./ObservationSteps/ObstaclesInformationStep";
+
+const {PHOTOS, RINGS} = FIELD_NAME;
 
 const AddObservation = () => {
-    const dispatch = useDispatch();
     const {t} = useTranslation();
 
-    const [step, setStep] = useState(availableSteps.first);
 
-    const validation = useCallback((values) => {
-        const errors = {};
-        return errors
-    }, []);
+    const onSubmit = values => {
 
-    const onSubmit = useCallback(values => {}, []);
+        console.log('onSubmit values', values)
+    };
 
     return (
-        <>
-            <Form
+        <View style={{ flex: 1,}}>
+            <Wizard
+                formProps={{
+                    mutators: { ...arrayMutators },
+                    initialValues: {
+                        [PHOTOS]: [undefined],
+                        [RINGS]: [undefined]
+                    },
+                }}
                 onSubmit={onSubmit}
-                validate={validation}
-                render={({handleSubmit}) => (
-                    <AddObservationSteps />
-                )}
-            />
-            {/*<ErrorModal error={error} action={modalAction} />*/}
-        </>
+                submitText="Activate"
+                // onClose={onClose}
+                renderFooter={(handleSubmit, handlePrevious) => <FooterNav onPressPrevious={handlePrevious} onPressNext={handleSubmit}/>}
+            >
+                <TagInformationStep validate={tagInformationValidation} />
+                <BirdInformationStep validate={birdInformationValidation} />
+                <ObstaclesInformationStep validate={obstaclesInformationValidation} />
+
+            </Wizard>
+        </View>
     );
 };
 
