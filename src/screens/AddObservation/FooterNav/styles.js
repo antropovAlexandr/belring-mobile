@@ -8,12 +8,15 @@ export default StyleSheet.create({
         height: 56,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
     },
     btnContainer: {
         justifyContent: 'center',
+        height:50,
     },
     btnLabel: {
         color: 'white',
+        fontSize: 17
     }
 });
 

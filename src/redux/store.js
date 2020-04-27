@@ -17,6 +17,7 @@ const persistConfig = {
   storage,
   blacklist: [
     'navigatorReducer',
+      'observation["error"]'
   ],
 };
 

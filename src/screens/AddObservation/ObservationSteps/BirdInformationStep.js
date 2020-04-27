@@ -11,7 +11,7 @@ const {TYPE_OF_BIRD, BIRD_SEX, BIRD_AGE, BIRD_WAS, BIRD_STATUS} = FIELD_NAME;
 
 const BIRD_APP_URL = "market://details?id=com.apbbirdsguide.app";
 
-const BirdInformationStep = () => {
+const BirdInformationStep = ({ form }) => {
     const {t} = useTranslation();
     const { otherMarksInformation } = useSelector(initialDataSelector);
 
@@ -39,12 +39,13 @@ const BirdInformationStep = () => {
                     </View>
                     <FormFieldWithDropdown
                         name={TYPE_OF_BIRD}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.typeOfBird')}
                     />
                     <Text style={styles.description}>
@@ -57,42 +58,46 @@ const BirdInformationStep = () => {
                     </Text>
                     <FormFieldWithDropdown
                         name={BIRD_SEX}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.birdSex')}
                     />
                     <FormFieldWithDropdown
                         name={BIRD_AGE}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.birdAge')}
                     />
                     <FormFieldWithDropdown
                         name={BIRD_WAS}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.birdWas')}
                     />
                     <FormFieldWithDropdown
                         name={BIRD_STATUS}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.birdStatus')}
                     />
                 </View>

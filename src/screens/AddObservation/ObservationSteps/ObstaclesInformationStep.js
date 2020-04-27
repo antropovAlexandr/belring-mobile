@@ -1,18 +1,34 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import {useSelector} from "react-redux";
-import {ScrollView, Text, View} from "react-native";
+import {ScrollView, Text, View } from "react-native";
+import {TouchableRipple, Portal, TextInput} from 'react-native-paper';
 import {Trans, useTranslation} from "react-i18next";
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {initialDataSelector} from "../../../selectors/initialDataSelector";
 import FormFieldWithDropdown from "../../../components/FormFieldWithDropdown";
+
 import {FIELD_NAME} from "../constants";
 import styles from "../styles";
+import FormFieldWithTextInput from "../../../components/FormFieldWithTextInput";
+import {formatDateToString} from "../../../helper/formatter";
 
 const {LOCATION_CONDITION, PLACE, COORDINATE_ACCURACY, DATE, DATE_ACCURACY} = FIELD_NAME;
 
+let selectedDate = null;
 
-const ObstaclesInformationStep = () => {
+const ObstaclesInformationStep = ({ form }) => {
+
+    const [showDatePicker, setShowDatePicker] = useState(false);
     const {t} = useTranslation();
     const { otherMarksInformation } = useSelector(initialDataSelector);
+
+    const onChangeDate = useCallback((event, date) => {
+        selectedDate = date || selectedDate;
+        setShowDatePicker(false);
+        form.mutators.setFormValue(DATE, selectedDate)
+    }, []);
+
+    const dateFormatter = useCallback(value => value ? formatDateToString(value) : null, []);
 
     return (
         <>
@@ -32,56 +48,67 @@ const ObstaclesInformationStep = () => {
                     </View>
                     <FormFieldWithDropdown
                         name={LOCATION_CONDITION}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.locationСondition')}
                     />
                     <FormFieldWithDropdown
                         name={PLACE}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.place')}
                     />
                     <FormFieldWithDropdown
                         name={COORDINATE_ACCURACY}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.coordinateAccuracy')}
                     />
-                    <FormFieldWithDropdown
-                        name={DATE}
-                        data={[
-                            {
-                                label: '1', desc_eng: '1',
-                            }, {label: '2', desc_eng: '2',}
-                        ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
-                        label={t('addEditObservation.date')}
-                    />
+
+                    <TouchableRipple onPress={() => setShowDatePicker(true)}>
+                        <FormFieldWithTextInput
+                            name={DATE}
+                            label={t('addEditObservation.date')}
+                            editable={false}
+                            format={dateFormatter}
+                            inputStyle={{ backgroundColor: 'transparent' }}
+                        />
+                    </TouchableRipple>
+
                     <FormFieldWithDropdown
                         name={DATE_ACCURACY}
-                        data={[
+                        setFormValue={form.mutators.setFormValue}
+                        items={[
                             {
                                 label: '1', desc_eng: '1',
                             }, {label: '2', desc_eng: '2',}
                         ]}
-                        valueExtractor={({desc_eng}) => desc_eng}
+                        valueField="desc_eng"
                         label={t('addEditObservation.birdStatus')}
                     />
                 </View>
             </ScrollView>
+            { showDatePicker && <DateTimePicker
+                mode="date"
+                value={new Date()}
+                display="default"
+                onChange={onChangeDate}
+            />}
         </>
     );
 };

@@ -64,6 +64,7 @@
     "addInfoAboutPhoto": "Добавьте фотографию птицы, желательно, чтобы на фотографии было видно кольцо и его номер",
     "confirmationDeletePhoto": "Вы действительно хотите удалить фотограцию?",
     "next": "ПРОДОЛЖИТЬ",
+    "publish": "Опубликовать",
     "back": "НАЗАД",
     "stepTitle": "Шаг {{firstStep}} из {{countStep}}",
     "typeOfBird": "Вид и род птицы",
@@ -91,14 +92,8 @@
     "observationCreatedTitle": "Observation has been successfully added",
     "observationCreatedDescription": 
       "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
-    "observationCreatedDate": "Observation time",
-    "observationLocation": "Observation location",
-    "birdSex": "Sex",
-    "birdAge": "Age",
-    "birdObstacles": "Obstacles",
-    "moveToRecord": "Go to the record",
-    "complete": "Complete",
-    "creatingObservation": "Creating observation"
+    "createOneMoreBird": "Добавить такую же птицу",
+    "createOneInLocation": "Добавить в этой локации"
   },
   "passwordRecovery": {
     "recovery": "Password\nrecovery",
