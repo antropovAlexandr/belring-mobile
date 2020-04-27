@@ -5,6 +5,7 @@ import { Form } from 'react-final-form';
 const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [isShowFooter, setShowFooter] = useState(true);
+    const isFirstPage = useMemo(() => currentPage === 0, [currentPage]);
     const isLastPage = useMemo(() => currentPage === Children.count(children) - 1, [currentPage, children]);
     const activePage = useMemo(() => Children.toArray(children)[currentPage], [currentPage, children]);
     const handleNext = useCallback(() => {
@@ -20,8 +21,8 @@ const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
         return props.validate ? props.validate(values) : {};
     };
 
-    const handleSubmit = (values) => {
-        if (isLastPage) return onSubmit(values);
+    const handleSubmit = (values, { reset }) => {
+        if (isLastPage) return onSubmit(values, { reset });
         return handleNext(values);
     };
 
@@ -31,10 +32,10 @@ const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
             validate={validate}
             onSubmit={handleSubmit}
         >
-            {({ handleSubmit, submitting, values = {} }) => (
+            {({ handleSubmit, submitting, values = {}, form }) => (
                 <>
-                    {React.cloneElement(activePage, { values, setShowFooter })}
-                    {(isShowFooter) ? renderFooter(handleSubmit, handlePrevious) : null}
+                    {React.cloneElement(activePage, { values, setShowFooter, form })}
+                    {(isShowFooter) ? renderFooter(handleSubmit, handlePrevious, isLastPage, isFirstPage) : null}
                 </>
             )}
         </Form>

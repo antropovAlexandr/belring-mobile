@@ -66,6 +66,7 @@
     "addInfoAboutPhoto": "Добавьте фотографию птицы, желательно, чтобы на фотографии было видно кольцо и его номер",
     "confirmationDeletePhoto": "Вы действительно хотите удалить фотограцию?",
     "next": "ПРОДОЛЖИТЬ",
+    "publish": "Опубликовать",
     "back": "НАЗАД",
     "stepTitle": "Шаг {{firstStep}} из {{countStep}}",
     "typeOfBird": "Вид и род птицы",
@@ -93,15 +94,8 @@
     "observationCreatedTitle": "Вы успешно добавили наблюдение",
     "observationCreatedDescription":
       "Вы успешно добавили наблюдение в базу, ваша запись будет промодерирована и добавлена в национальную и европейскую базы наблюдений окольцованных птиц.",
-    "observationCreatedDate": "Время наблюдения",
-    "observationLocation": "Место наблюдения",
-    "birdSex": "Пол",
-    "birdAge": "Возраст",
-    "birdObstacles": "Обстоятельства",
-    "moveToRecord": "Перейти к записи",
-    "complete": "Завершить",
-    "creatingObservation": "Добавление наблюдения",
-    "ringNumberValidation": "Укажите Номер метки"
+    "createOneMoreBird": "Добавить такую же птицу",
+    "createOneInLocation": "Добавить в этой локации"
   },
   "passwordRecovery": {
     "recovery": "Восстановление\nпароля",

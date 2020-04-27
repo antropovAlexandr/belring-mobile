@@ -16,11 +16,10 @@ import PreviewPhoto from "./PreviewPhoto";
 
 const {PHOTOS, PHOTO, RINGS, TAG_NUMBER, TAG_TYPE} = FIELD_NAME;
 
-const TagInformationStep = ({ values, setShowFooter }) => {
+const TagInformationStep = ({ values, setShowFooter, form }) => {
     const [isShowPreview, setIsShowPreview] = useState(false)
     const {t} = useTranslation();
     const { otherMarksInformation } = useSelector(initialDataSelector);
-    console.log('values', values)
 
     const onPressShowPreview = useCallback(() => setIsShowPreview(true));
     const onPressClosePreview = useCallback(() => setIsShowPreview(false));
@@ -57,12 +56,13 @@ const TagInformationStep = ({ values, setShowFooter }) => {
                                                 />
                                                 <FormFieldWithDropdown
                                                     name={`${name}.${TAG_TYPE}`}
-                                                    data={[
+                                                    setFormValue={form.mutators.setFormValue}
+                                                    items={[
                                                         {
                                                             label: '1', desc_eng: '1',
                                                         }, {label: '2', desc_eng: '2',}
                                                     ]}
-                                                    valueExtractor={({desc_eng}) => desc_eng}
+                                                    valueField="desc_eng"
                                                     label={t('addEditObservation.ringType')}
                                                 />
                                             </View>

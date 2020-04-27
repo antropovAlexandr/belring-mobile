@@ -1,44 +1,58 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { View } from "react-native";
 import {useTranslation} from "react-i18next";
-import {TextInput, HelperText} from "react-native-paper";
+import {HelperText, TouchableRipple, Menu, TextInput} from "react-native-paper";
 import {Field} from "react-final-form";
-import {Dropdown} from "react-native-material-dropdown";
-import {black06} from "../../consts/colors";
-import styles from "./styles";
 
-const FormFieldWithDropdown = ({ name, style, ...inputProps }) => {
+const FormFieldWithDropdown = ({ name, items, valueField, setFormValue, style, ...inputProps }) => {
     const {t} = useTranslation();
+    const [isShowMenu, setShowMenu] = useState(false);
+
+    const showMenu = useCallback(() => setShowMenu(true), []);
+
+    const hideMenu = useCallback(() => setShowMenu(false), []);
+
     return (
-        <Field
-            {...{ name }}
-            render={({input, meta}) => {
-                const { onChange, value } = input;
-                const isError = !!meta.error && meta.touched;
-                return (
-                    <View style={style}>
-                        <Dropdown
-                            {...inputProps}
-                            containerStyle={styles.dropdown}
-                            baseColor={black06}
-                            onChangeText={onChange}
-                            renderBase={() => <TextInput
-                                {...inputProps}
-                                value={value}
-                                mode="flat"
-                                error={isError}
-                            />}
-                        />
-                        <HelperText
-                            type="error"
-                            visible={isError}
-                        >
-                            {t(meta.error)}
-                        </HelperText>
-                    </View>
-                );
-            }}
-        />
+        <Menu
+            visible={isShowMenu}
+            onDismiss={hideMenu}
+            style={{ width: '95%' }}
+            anchor={
+                <Field
+                    {...{ name }}
+                    render={({input, meta}) => {
+                        const isError = !!meta.error && meta.touched;
+                        return (
+                            <View style={style}>
+                                <TouchableRipple onPress={showMenu}>
+                                    <TextInput
+                                        {...input}
+                                        {...inputProps}
+                                        editable={false}
+                                        style={{ backgroundColor: 'transparent' }}
+                                        error={isError}
+                                    />
+                                </TouchableRipple>
+                                <HelperText
+                                    type="error"
+                                    visible={isError}
+                                >
+                                    {t(meta.error)}
+                                </HelperText>
+                            </View>
+                        );
+                    }}
+                />
+            }
+        >
+            {items.map(item => <Menu.Item
+                key={item.label}
+                onPress={(event) => {
+                    setFormValue(name, item[valueField]);
+                    hideMenu();
+                }} title={item.label}
+            />)}
+        </Menu>
     );
 };
 

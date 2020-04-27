@@ -4,7 +4,7 @@ import {
     AUTH_LOGIN_ENDPOINT,
     AUTH_REGISTRATION_ENDPOINT,
     AUTH_RESET_PASSWORD_ENDPOINT,
-    GET_PLACES_ENDPOINT, INITIAL_DATA_ENDPOINT
+    GET_PLACES_ENDPOINT, INITIAL_DATA_ENDPOINT, OBSERVATIONS_ENDPOINT
 } from "./constants";
 import httpErrorAdapter, { checkErrorInResponse } from "./httpErrorAdapter";
 
@@ -64,6 +64,15 @@ export const getPlaces = () => {
 export const getInitialData = ({ lang, token }) => {
     return client
         .get(INITIAL_DATA_ENDPOINT, token, {  params: { lang }, headers: { Authorization: token } })
+        .then((response) => checkErrorInResponse(response))
+        .catch(error => {
+            throw httpErrorAdapter(error);
+        })
+};
+
+export const createObservation = ({ token, data }) => {
+    return client
+        .post(OBSERVATIONS_ENDPOINT, token, data )
         .then((response) => checkErrorInResponse(response))
         .catch(error => {
             throw httpErrorAdapter(error);
