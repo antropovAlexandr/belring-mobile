@@ -1,5 +1,4 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
-import {NavigationActions} from '../reducers/navigatorReducer'
 import {PlacesActions, PlacesTypes} from '../reducers/placesReducer'
 import {EMPTY_ITEMS_SCREEN} from '../../screens/constants'
 
@@ -15,7 +14,7 @@ function sagasWithClient(client) {
             const { places } = yield call(client.getPlaces);
             yield put(PlacesActions.loadPlacesSuccess(places));
             const screen = getScreenByResponse(places);
-            yield put(NavigationActions.navigate(screen));
+            // yield put(NavigationActions.navigate(screen));
         } catch (e) {
             yield put(PlacesActions.setError(e));
         }

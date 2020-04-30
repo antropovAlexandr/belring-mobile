@@ -2,17 +2,16 @@ import React, { useEffect, useCallback } from 'react'
 import {Text} from 'react-native'
 import {Button} from "react-native-paper";
 import {InitialDataActions} from "../../redux/reducers/initialDataReducer";
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
 import {EMPTY_ITEMS_SCREEN, OBSERVATION_CREATED} from "../constants";
 import {useDispatch} from "react-redux";
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(InitialDataActions.initialDataRequest())
     }, []);
 
-    const navigateToEmpty = useCallback((params) => dispatch(NavigationActions.navigate({ routeName: EMPTY_ITEMS_SCREEN, params })), [])
+    const navigateToEmpty = useCallback((params) => navigation.navigate(EMPTY_ITEMS_SCREEN, params), [])
 
     const handleNavigateNewPlace = useCallback(() => navigateToEmpty({
       title: 'places.titleEmpty',
@@ -24,7 +23,7 @@ const MainScreen = () => {
       description: 'addEditObservation.descriptionEmpty',
     }), [navigateToEmpty])
 
-    const handleNavigateToSuccessObservations = useCallback(() => dispatch(NavigationActions.navigate({routeName: OBSERVATION_CREATED })), [dispatch])
+    const handleNavigateToSuccessObservations = useCallback(() => navigation.navigate(OBSERVATION_CREATED), [dispatch])
 
     return (
         <>

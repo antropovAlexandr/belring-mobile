@@ -64,6 +64,12 @@ export default StyleSheet.create({
         top:      0,
         zIndex: 100,
     },
+    deleteBtn: {
+        alignItems: "flex-end",
+    },
+    oneMoreRingBtn: {
+        marginTop: 5,
+    },
     mobileAppText: {
         color: greenLight,
     }

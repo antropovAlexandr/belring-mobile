@@ -2,27 +2,23 @@ import React, {useState} from "react";
 import {Image, Text, View} from "react-native";
 import {FAB} from 'react-native-paper';
 import {useTranslation} from "react-i18next";
-import {useDispatch} from "react-redux";
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
 import {ADD_OBSERVATION} from "../constants";
 import styles from "./styles";
 
 const arrow = require("../../assets/images/arrow.png");
 
-const EmptyItemsScreen = ({ navigation }) => {
+const EmptyItemsScreen = ({ route, navigation }) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
 
-    const title = navigation.getParam('title', 'places.titleEmpty');
-    const description = navigation.getParam('description', 'places.descriptionEmpty');
+    const { title, description } = route.params;
 
     const actions = [
         {icon: 'map-marker', label: t("places.addNewPlace"), onPress: () => console.log('Добавить место')},
         {
             icon: 'binoculars',
             label: t("addEditObservation.navHeaderTitleAdd"),
-            onPress: () => dispatch(NavigationActions.navigate({routeName: ADD_OBSERVATION}))
+            onPress: () => navigation.navigate(ADD_OBSERVATION)
         },
     ];
 
