@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Form } from 'react-final-form'
 import { useTranslation } from "react-i18next";
@@ -7,9 +7,8 @@ import RegistrationScreenView from "./RegistrationScreenView";
 import ErrorModal from "../../components/ErrorModal";
 import { checkEmailIsValid, checkPasswordIsValid } from "../../helper/validation";
 import { userErrorSelector } from "../../selectors/userSelector";
-import { NavigationActions } from "../../redux/reducers/navigatorReducer";
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const error = useSelector(userErrorSelector);
     const { t } = useTranslation();
@@ -24,6 +23,10 @@ const RegistrationScreen = () => {
         return errors
     };
 
+    const handleNavigateBack = useCallback(() => {
+        navigation.goBack();
+    }, [navigation]);
+
     return (
         <>
             <Form
@@ -33,7 +36,7 @@ const RegistrationScreen = () => {
                 validate={validation}
                 render={({ handleSubmit }) => <RegistrationScreenView
                     onPressRegistration={handleSubmit}
-                    onPressBack={() => dispatch(NavigationActions.goBack())}
+                    onPressBack={handleNavigateBack}
                 />}
             />
             <ErrorModal error={error} action={() => dispatch(UserActions.clearUserError())} />

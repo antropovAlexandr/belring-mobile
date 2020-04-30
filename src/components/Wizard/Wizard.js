@@ -1,10 +1,18 @@
 import React, { Children, useState, useMemo, useCallback } from 'react';
 import { Form } from 'react-final-form';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [isShowFooter, setShowFooter] = useState(true);
+
+    useFocusEffect(
+        useCallback(() => {
+            return () => { setCurrentPage(0) };
+        }, [])
+    );
+
     const isFirstPage = useMemo(() => currentPage === 0, [currentPage]);
     const isLastPage = useMemo(() => currentPage === Children.count(children) - 1, [currentPage, children]);
     const activePage = useMemo(() => Children.toArray(children)[currentPage], [currentPage, children]);
