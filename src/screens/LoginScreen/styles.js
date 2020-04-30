@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { black06 } from '../../consts/colors'
+import { black06, black012 } from '../../consts/colors'
 
 export default StyleSheet.create({
     scrollContainer: {
@@ -52,7 +52,7 @@ export default StyleSheet.create({
         marginTop: 15,
     },
     signUpBorder: {
-        borderColor: 'rgba(0,0,0,0.12)',
+        borderColor: black012,
     },
     restorePswBtn: {
         marginTop: 10,

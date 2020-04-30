@@ -7,26 +7,21 @@ import LoginScreenView from "./LoginScreenView";
 import ErrorModal from "../../components/ErrorModal";
 import {checkEmailIsValid, checkPasswordIsValid} from "../../helper/validation";
 import {userErrorSelector} from "../../selectors/userSelector";
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
-import {REGISTRATION_SCREEN} from "../../consts/screenNames";
+import {REGISTRATION_SCREEN, PASSWORD_RECOVERY} from "../constants";
 
 const logoImg = require('assets/images/logo/logo.png');
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const error = useSelector(userErrorSelector);
     const {t} = useTranslation();
     const onPressRegistration = useCallback(() => {
-        dispatch(NavigationActions.navigate({routeName: REGISTRATION_SCREEN}))
-    })
+        navigation.navigate(REGISTRATION_SCREEN);
+    }, []);
 
     const onPressResetPassword = useCallback(() => {
-        dispatch(NavigationActions.navigate({routeName: REGISTRATION_SCREEN}))
-    })
-
-    const modalAction = useCallback(() => {
-        dispatch(UserActions.clearUserError())
-    })
+        navigation.navigate(PASSWORD_RECOVERY);
+    }, []);
 
     const validation = useCallback((values) => {
         const errors = {};
@@ -51,7 +46,7 @@ const LoginScreen = () => {
                   />
                 )}
             />
-            <ErrorModal error={error} action={modalAction} />
+            <ErrorModal error={error} />
         </>
     );
 };

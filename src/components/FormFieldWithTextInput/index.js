@@ -2,11 +2,14 @@ import React from 'react';
 import { TextInput, HelperText } from "react-native-paper";
 import { Field } from 'react-final-form';
 import { View } from "react-native";
+import {useTranslation} from "react-i18next";
 
-const FormFieldWithTextInput = ({ name, style, ...inputProps }) => {
+const FormFieldWithTextInput = ({ name, format, style, inputStyle, ...inputProps }) => {
+    const {t} = useTranslation();
     return (
         <Field
             {...{ name }}
+            {...{ format }}
             render={({input, meta}) => {
                 const isError = !!meta.error && meta.touched;
                 return (
@@ -14,12 +17,14 @@ const FormFieldWithTextInput = ({ name, style, ...inputProps }) => {
                         <TextInput
                             {...input}
                             {...inputProps}
-                            error={isError} />
+                            style={inputStyle}
+                            error={isError}
+                        />
                         <HelperText
                             type="error"
                             visible={isError}
                         >
-                            {meta.error}
+                            {t(meta.error)}
                         </HelperText>
                     </View>
                 );

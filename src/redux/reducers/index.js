@@ -1,11 +1,12 @@
-import { combineReducers } from 'redux'
-import { createNavigationReducer } from 'react-navigation-redux-helpers'
-import AppNavigator from 'Navigator/index'
-import { reducer as userReducer } from './userReducer'
-
-const navigatorReducer = createNavigationReducer(AppNavigator);
+import {combineReducers} from 'redux'
+import {reducer as userReducer} from './userReducer'
+import {reducer as placesReducer} from './placesReducer'
+import {reducer as initialDataReducer} from './initialDataReducer'
+import {reducer as observationReducer} from './observationReducer'
 
 export default combineReducers({
-  navigatorReducer: navigatorReducer,
-  user: userReducer,
+    user: userReducer,
+    places: placesReducer,
+    initialData: initialDataReducer,
+    observation: observationReducer,
 })

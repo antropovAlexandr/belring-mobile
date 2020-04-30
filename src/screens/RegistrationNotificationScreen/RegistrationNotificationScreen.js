@@ -1,20 +1,19 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Text, Image, KeyboardAvoidingView, ScrollView} from 'react-native';
-import {useDispatch} from "react-redux";
 import {Button} from "react-native-paper";
 import {useTranslation} from "react-i18next";
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
-import {LOGIN_SCREEN} from "../../consts/screenNames";
+import {LOGIN_SCREEN} from "../constants";
 import styles from './styles';
 
 const logoImg = require('assets/images/logo/logo.png');
 
-const RegistrationNotificationScreen = ({ navigation }) => {
-
-    const dispatch = useDispatch();
+const RegistrationNotificationScreen = ({ route, navigation }) => {
+    const { origin = 'registration' } = route.params;
     const { t } = useTranslation();
 
-    const origin = navigation.getParam('origin', 'registration');
+    const handleNavigateToLoginScreen = useCallback(() => {
+        navigation.navigate(LOGIN_SCREEN);
+    }, [navigation]);
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -27,7 +26,7 @@ const RegistrationNotificationScreen = ({ navigation }) => {
                     mode="contained"
                     style={styles.backBtn}
                     labelStyle={styles.backBtnText}
-                    onPress={() => dispatch(NavigationActions.navigate({ routeName: LOGIN_SCREEN }))}
+                    onPress={handleNavigateToLoginScreen}
                 >
                     {t('registrationEmailSent.goToLogin')}
                 </Button>

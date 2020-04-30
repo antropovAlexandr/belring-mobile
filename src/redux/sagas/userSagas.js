@@ -1,18 +1,14 @@
-import {put, call, takeLatest} from 'redux-saga/effects';
-import {NavigationActions} from '../reducers/navigatorReducer'
+import {call, put, takeLatest} from 'redux-saga/effects';
 import {UserActions, UserTypes} from '../reducers/userReducer'
-import {APP_STACK, LOGIN_STACK, REGISTRATION_NOTIFICATION_SCREEN} from '../../consts/screenNames'
+import { navigate } from '../../navigator';
+import { REGISTRATION_NOTIFICATION_SCREEN } from '../../screens/constants'
 
 function sagasWithClient(client) {
-    function* logout() {
-        yield put(NavigationActions.navigate({ routeName: LOGIN_STACK }))
-    }
 
     function* login({email, password}) {
         try {
             const { token, refreshToken } = yield call(client.logIn, {email, password});
             yield put(UserActions.registrationSuccess(token, refreshToken));
-            yield put(NavigationActions.navigate({ routeName: APP_STACK }));
         } catch (e) {
             yield put(UserActions.setUserError(e));
         }
@@ -24,9 +20,7 @@ function sagasWithClient(client) {
                 email, password, firstName, lastName, phone
             });
             yield put(UserActions.registrationSuccess(token, refreshToken));
-            yield put(NavigationActions.navigate({
-                routeName: REGISTRATION_NOTIFICATION_SCREEN, params: {origin: 'registration'}
-            }));
+            yield call(navigate, REGISTRATION_NOTIFICATION_SCREEN, {origin: 'registration'});
         } catch (e) {
             yield put(UserActions.setUserError(e));
         }
@@ -36,9 +30,7 @@ function sagasWithClient(client) {
         try {
             yield call(client.resetPassword, { email });
             yield put(UserActions.resetPasswordSuccess());
-            yield put(NavigationActions.navigate({
-                routeName: REGISTRATION_NOTIFICATION_SCREEN, params: {origin: 'passwordRecovery'}
-            }));
+            yield call(navigate,  REGISTRATION_NOTIFICATION_SCREEN, {origin: 'passwordRecovery'});
         } catch (e) {
             yield put(UserActions.setUserError(e));
         }
@@ -48,10 +40,9 @@ function sagasWithClient(client) {
         yield takeLatest(UserTypes.LOGIN_REQUEST, login);
         yield takeLatest(UserTypes.REGISTRATION_REQUEST, registration);
         yield takeLatest(UserTypes.RESET_PASSWORD_REQUEST, resetPassword);
-        yield takeLatest(UserTypes.LOGOUT, logout);
     }
 
-    return {login, logout, watchActions};
+    return {login, watchActions};
 }
 
 export default sagasWithClient;

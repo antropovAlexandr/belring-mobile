@@ -31,7 +31,6 @@ const RegistrationScreenView = ({logoImg, onPressRegistration, onPressBack}) => 
                     component={TextInput}
                     label={t('registration.firstName')}
                     mode="outlined"
-                    secureTextEntry
                 />
                 <FormFieldWithTextInput
                     name="lastName"
