@@ -1,1 +1,0 @@
-export const initialDataSelector = state => state.initialData.data;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { appLoadingSelector } from '../../selectors/common'
+import { appLoadingSelector } from '../../selector'
 import { ActivityIndicator, Portal, Modal } from 'react-native-paper';
 
 const Spinner = () => {

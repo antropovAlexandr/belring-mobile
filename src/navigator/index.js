@@ -4,10 +4,11 @@ import AppStack from './appNavigator';
 import LoginStack from './authNavigator';
 import IntroductionStack from "./IntroductionNavigator";
 import {useSelector} from "react-redux";
-import {userFirstEntrySelector, userTokenSelector} from "../selectors/userSelector";
+import {AppDrawerNavigator} from "./drawerNavigation";
+import {userIsFirstEntrySelector, userTokenSelector} from "../screens/Login/selector";
 
 const getStackNavigation = (token, isFirstEntry) => {
-    if(token) return <AppStack />;
+    if(token) return <AppDrawerNavigator />;
     return isFirstEntry ? <IntroductionStack /> : <LoginStack />;
 };
 
@@ -19,7 +20,7 @@ export function navigate(name, params) {
 
 export default () => {
     const token = useSelector(userTokenSelector);
-    const isFirstEntry = useSelector(userFirstEntrySelector);
+    const isFirstEntry = useSelector(userIsFirstEntrySelector);
 
     return (
         <NavigationContainer ref={navigationRef}>

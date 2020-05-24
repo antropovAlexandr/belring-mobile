@@ -4,8 +4,8 @@ import {
     LANGUAGE_SCREEN,
     INTRODUCTION_SCREEN,
 } from '../screens/constants';
-import LanguageSelect from "../screens/LanguageSelect";
-import Introduction from "../screens/Introduction";
+import LanguageSelect from "../screens/Onboarding/LanguageSelect";
+import Introduction from "../screens/Onboarding/Introduction";
 import { defaultConfig } from "./configs";
 
 const Stack = createStackNavigator();

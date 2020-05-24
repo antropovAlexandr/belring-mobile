@@ -41,6 +41,8 @@
     "phone": "Phone Number shouldn't be empty"
   },
   "addEditObservation": {
+    "screenTitle": "Мои наблюдения",
+    "newObservationTitle": "Новое наблюдения",
     "titleEmpty": "У вас ещё нет наблюдений",
     "descriptionEmpty": "И если вы увидели птицу с кольцом или просто нашли кольцо – самое время поделиться этой информацией с нами!",
     "birdHeader": "Птица",
@@ -119,7 +121,6 @@
     "errorOnDelete": "Error when deleting observation, please try again later"
   },
   "topLevelMenu": {
-    "observationTitle": "Observations",
     "userRoles": {
       "observer": "Observer",
       "ringer": "Ringer",
@@ -127,12 +128,15 @@
       "moderator": "Moderator",
       "admin": "Admin"
     },
-    "birds": "Birds",
+    "observation": "My observations",
+    "draft": "Мои черновики",
+    "place": "Мои места",
     "settings": "Settings",
     "aboutApp": "О приложении",
     "exit": "Log out"
   },
   "settings": {
+    "screenTitle": "Settings",
     "profileSettings": "Profile Settings",
     "email": "E-mail",
     "refresh": "Update",
@@ -177,7 +181,7 @@
     "tagsScreenText": "tagsScreenText"
   },
   "aboutApp": {
-    "aboutApp": "О приложении",
+    "screenTitle": "О приложении",
     "version": "Версия",
     "description": "Приложение для сбора данных об окольцованных птицах, найденных на территории Республики Беларусь",
     "readMore": "Узнать больше",
@@ -188,5 +192,20 @@
     "email": "Email",
     "developmentTitle": "Разработка приложения",
     "developmentDescription": "Идея прииложения была обозначена и частично реализована во время хакатона Engeneering Jam, в ходе которого приложение получило приз зрительских симпатий. После победы в хакатоне, приложение взяли разработчики, в рамках практики на учебном курсе FrontSpot Hub, внутри компании EPAM."
+  },
+  "places": {
+    "screenTitle": "Мои места",
+    "myPlaces": "Мои места",
+    "titleEmpty": "У вас ещё нет мест",
+    "descriptionEmpty": "И если вы увидели птицу с кольцом или просто нашли кольцо – самое время поделиться этой информацией с нами!",
+    "addNewPlace": "Добавить место",
+    "savePlace": "Сохранить место",
+    "location": "Местоположение",
+    "name": "Название",
+    "locationValidation": "Укажите местоположение",
+    "nameValidation": "Укажите название",
+    "currentGeoPosition": "Текущая геопозиция",
+    "locationOnMap": "На карте",
+    "locationPermissions": "You need to accept location permissions to use this application"
   }
 }

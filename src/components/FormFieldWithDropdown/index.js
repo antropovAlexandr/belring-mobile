@@ -4,7 +4,16 @@ import {useTranslation} from "react-i18next";
 import {HelperText, TouchableRipple, Menu, TextInput} from "react-native-paper";
 import {Field} from "react-final-form";
 
-const FormFieldWithDropdown = ({ name, items, valueField, setFormValue, style, ...inputProps }) => {
+const FormFieldWithDropdown = ({
+    name,
+    format,
+    items,
+    valueField='value',
+    labelField='label',
+    setFormValue,
+    style,
+    ...inputProps
+}) => {
     const {t} = useTranslation();
     const [isShowMenu, setShowMenu] = useState(false);
 
@@ -16,10 +25,11 @@ const FormFieldWithDropdown = ({ name, items, valueField, setFormValue, style, .
         <Menu
             visible={isShowMenu}
             onDismiss={hideMenu}
-            style={{ width: '95%' }}
+            style={{ width: '90%' }}
             anchor={
                 <Field
                     {...{ name }}
+                    {...{ format }}
                     render={({input, meta}) => {
                         const isError = !!meta.error && meta.touched;
                         return (
@@ -45,13 +55,20 @@ const FormFieldWithDropdown = ({ name, items, valueField, setFormValue, style, .
                 />
             }
         >
-            {items.map(item => <Menu.Item
-                key={item.label}
-                onPress={(event) => {
-                    setFormValue(name, item[valueField]);
-                    hideMenu();
-                }} title={item.label}
-            />)}
+            {items.map(item => {
+                const {id, onPress, ...otherProps} = item;
+                return (
+                    <Menu.Item
+                        {...otherProps}
+                        key={id || item[labelField]}
+                        onPress={() => {
+                            onPress ? onPress() : setFormValue(name, item[valueField]);
+                            hideMenu();
+                        }}
+                        title={item[labelField]}
+                    />
+                );
+            })}
         </Menu>
     );
 };

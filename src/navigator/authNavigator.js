@@ -1,9 +1,9 @@
 import React from 'react'
 import {createStackNavigator} from "@react-navigation/stack";
-import LoginScreen from '../screens/LoginScreen'
-import RegistrationScreen from '../screens/RegistrationScreen'
-import RegistrationNotificationScreen from "../screens/RegistrationNotificationScreen";
-import PasswordRecovery from "../screens/PasswordRecovery";
+import Login from '../screens/Login'
+import Registration from '../screens/Login/Registration'
+import RegistrationNotification from "../screens/Login/RegistrationNotification";
+import PasswordRecovery from "../screens/Login/PasswordRecovery";
 import {
     LOGIN_SCREEN,
     PASSWORD_RECOVERY,
@@ -21,17 +21,17 @@ const LoginStack = () => (
     >
         <Stack.Screen
             name={LOGIN_SCREEN}
-            component={LoginScreen}
+            component={Login}
             options={{ headerShown: false }}
         />
         <Stack.Screen
             name={REGISTRATION_SCREEN}
-            component={RegistrationScreen}
+            component={Registration}
             options={{ headerShown: false }}
         />
         <Stack.Screen
             name={REGISTRATION_NOTIFICATION_SCREEN}
-            component={RegistrationNotificationScreen}
+            component={RegistrationNotification}
             options={{ headerShown: false }}
         />
         <Stack.Screen
