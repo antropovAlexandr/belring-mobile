@@ -5,16 +5,13 @@ import { StatusBar, SafeAreaView } from 'react-native'
 import { Provider as PaperProvider } from 'react-native-paper';
 import {I18nextProvider} from 'react-i18next';
 import MainNavigator from './src/navigator'
-import Store from './src/redux/store'
+import { store, persistor } from './src/store'
 import Spinner from './src/components/Spinner'
 import i18 from './src/i18n';
-import { paperTheme, colors } from "./src/consts/themes";
-
-
-const {store, persistor} = Store;
+import { paperTheme } from "./src/consts/themes";
+import ErrorModal from "./src/components/ErrorModal";
 
 const App = () => {
-
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -23,6 +20,7 @@ const App = () => {
                 <SafeAreaView style={{ flex: 1 }} >
                   <StatusBar barStyle='dark-content' />
                   <Spinner />
+                  <ErrorModal />
                   <MainNavigator />
                 </SafeAreaView>
             </PaperProvider>
