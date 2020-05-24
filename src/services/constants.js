@@ -1,4 +1,5 @@
-export const BASE_URL = 'http://ptushki.westeurope.cloudapp.azure.com/api';
+// export const BASE_URL = 'http://ptushki.westeurope.cloudapp.azure.com/api';
+export const BASE_URL = 'http://localhost:3001';
 
 export const AUTH_LOGIN_ENDPOINT = '/auth/login';
 export const AUTH_LOGOUT_ENDPOINT = '/auth/logout';
@@ -10,4 +11,7 @@ export const INITIAL_DATA_ENDPOINT = '/initial-data';
 export const UPDATE_EMAIL = '/update-email';
 export const UPDATE_PASSWORD = '/update-password';
 export const UPDATE_PERSONAL_DATA = '/update-personal-data';
+export const UPDATE_PLACES = '/update-places';
 export const DELETE_OBSERVATIONS_ENDPOINT = (id, description) => `/observations/${id}`;
+export const USER = '/users';
+

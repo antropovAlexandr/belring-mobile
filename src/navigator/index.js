@@ -1,36 +1,30 @@
 import React from 'react';
-import { createSwitchNavigator } from 'react-navigation';
-import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
-import { Transition } from 'react-native-reanimated';
-import { Platform } from 'react-native';
-import {
-  APP_LOADING_SCREEN,
-  APP_STACK,
-  LOGIN_STACK,
-} from 'Consts/screenNames';
-import AppLoadingScreen from 'Screens/appLoadingScreen';
+import {NavigationContainer} from "@react-navigation/native";
 import AppStack from './appNavigator';
 import LoginStack from './authNavigator';
+import IntroductionStack from "./IntroductionNavigator";
+import {useSelector} from "react-redux";
+import {AppDrawerNavigator} from "./drawerNavigation";
+import {userIsFirstEntrySelector, userTokenSelector} from "../screens/Login/selector";
 
-const customCreateSwitchNavigator = Platform.select({
-  ios: createAnimatedSwitchNavigator,
-  android: createSwitchNavigator
-});
+const getStackNavigation = (token, isFirstEntry) => {
+    if(token) return <AppDrawerNavigator />;
+    return isFirstEntry ? <IntroductionStack /> : <LoginStack />;
+};
 
-export default customCreateSwitchNavigator({
-  [APP_LOADING_SCREEN]: AppLoadingScreen,
-  [APP_STACK]: AppStack,
-  [LOGIN_STACK]: LoginStack
-}, {
-  initialRouteName: APP_LOADING_SCREEN,
-  transition: (
-    <Transition.Together>
-      <Transition.Out
-        type="slide-top"
-        durationMs={400}
-        interpolation="easeIn"
-      />
-      <Transition.In type="fade" durationMs={500} />
-    </Transition.Together>
-  ),
-});
+export const navigationRef = React.createRef();
+
+export function navigate(name, params) {
+    navigationRef.current?.navigate(name, params);
+}
+
+export default () => {
+    const token = useSelector(userTokenSelector);
+    const isFirstEntry = useSelector(userIsFirstEntrySelector);
+
+    return (
+        <NavigationContainer ref={navigationRef}>
+            {getStackNavigation(token, isFirstEntry)}
+        </NavigationContainer>
+    );
+};
