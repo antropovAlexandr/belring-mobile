@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { black054, blueLight, blue } from '../../../../../../consts/colors'
+import { colors } from 'Consts';
 
 export default StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ export default StyleSheet.create({
   },
   closeIcon: {
     fontSize: 24,
-    color: black054,
+    color: colors.black054,
   },
   slideContainer: {
     flex: 1,
@@ -44,10 +44,10 @@ export default StyleSheet.create({
     marginRight: 9,
     marginLeft: 9,
     borderRadius: 5,
-    backgroundColor: blueLight,
+    backgroundColor: colors.blueLight,
   },
   backgroundActive: {
-    backgroundColor: blue,
+    backgroundColor: colors.blue,
   },
   pagination: {
     bottom: 20,

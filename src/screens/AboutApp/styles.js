@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { black087, black06, blue, gray } from '../../consts/colors';
 
+import { colors, fonts } from 'Consts';
 
 const styles = StyleSheet.create({
   container: {},
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   text: {
+    ...fonts.DEFAULT_NORMAL,
     marginTop: 10,
-    color: black087,
-    fontFamily: 'Roboto',
+    color: colors.black087,
     fontSize: 14,
     lineHeight: 20,
     letterSpacing: 0.25,
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   title: {
-    color: blue,
-    fontFamily: 'Lato-Semibold',
+    ...fonts.LATO_SEMIBOLD,
+    color: colors.blue,
     fontSize: 25,
     lineHeight: 30,
   },
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     marginBottom: 35,
   },
   contactDetailsTitle: {
-    color: black06,
-    fontFamily: 'Roboto',
+    ...fonts.DEFAULT_NORMAL,
+    color: colors.black06,
     fontSize: 12,
     lineHeight: 16,
     letterSpacing: 2,
@@ -66,19 +66,19 @@ const styles = StyleSheet.create({
   contactDetailsItem: {
     marginTop: 10,
     paddingBottom: 10,
-    borderBottomColor: gray,
+    borderBottomColor: colors.gray,
     borderBottomWidth: 1,
   },
   contactDetailsLabel: {
-    color: black087,
-    fontFamily: 'Roboto',
+    ...fonts.DEFAULT_NORMAL,
+    color: colors.black087,
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0.15,
   },
   contactDetailsInput: {
-    color: black06,
-    fontFamily: 'Roboto',
+    ...fonts.DEFAULT_NORMAL,
+    color: colors.black06,
     fontSize: 14,
     lineHeight: 20,
     letterSpacing: 0.25,

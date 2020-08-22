@@ -1,7 +1,12 @@
 {
   "Hello": "Hello",
+  "button": {
+    "OK": "OK"
+  },
   "backendError": {
-    "401": "Error with password or login, try one more time, please"
+    "errorTitle": "Error",
+    "401": "Error with password or login, try one more time, please",
+    "default": "Something went wrong. Please try again."
   },
   "registration": {
     "password": "Password",
@@ -124,14 +129,13 @@
   },
   "observationCreated": {
     "observationCreatedTitle": "Observation has been successfully added",
-    "observationCreatedDescription":
-      "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
+    "observationCreatedDescription": "Observation has been successfully added to the database, your record will be moderized and then added to the national and european bases of ringed birds.",
     "createOneMoreBird": "Добавить такую же птицу",
     "createOneInLocation": "Добавить в этой локации"
   },
   "passwordRecovery": {
     "recovery": "Password\nrecovery",
-    "sendNewPassword": "Sent new password",
+    "sendNewPassword": "Send new password",
     "statusText": "We just sent you a new password!",
     "instructionText": "Enter your E-mail, so we could send you a new password",
     "hintText": "Check your E-mail for your new password. You could change it later.",

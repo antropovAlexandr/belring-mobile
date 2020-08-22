@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import * as colors from '../../../consts/colors'
+
+import { colors, fonts } from 'Consts';
 
 export default StyleSheet.create({
   scrollContainer: {
@@ -13,7 +14,7 @@ export default StyleSheet.create({
     paddingLeft: 18,
   },
   headerText: {
-    fontFamily: 'Lato-Semibold',
+    ...fonts.LATO_SEMIBOLD,
     fontSize: 32,
     lineHeight: 39,
     letterSpacing: 0.24,
@@ -21,10 +22,10 @@ export default StyleSheet.create({
     color: colors.blue,
   },
   hintText: {
+    ...fonts.DEFAULT_NORMAL,
     marginTop: 15,
     marginBottom: 15,
     color: colors.black06,
-    fontFamily: 'Roboto',
     fontSize: 12,
     lineHeight: 16,
     letterSpacing: 0.4,

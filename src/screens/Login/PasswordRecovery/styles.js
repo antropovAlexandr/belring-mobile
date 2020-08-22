@@ -1,27 +1,28 @@
 import { StyleSheet } from 'react-native';
-import { blue } from '../../../consts/colors'
+
+import { colors, fonts } from 'Consts';
 
 export default StyleSheet.create({
-    scrollContainer: {
-        flex: 1,
-    },
-    container: {
-        flexGrow: 1,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        paddingTop: 10,
-        paddingBottom: 20,
-    },
+  scrollContainer: {
+    flex: 1,
+  },
+  container: {
+    flexGrow: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    paddingBottom: 20,
+  },
   main: {
     width: '100%',
   },
   headerText: {
-    fontFamily: 'Lato-Semibold',
+    ...fonts.LATO_SEMIBOLD,
     fontSize: 32,
     lineHeight: 39,
     letterSpacing: 0.24,
-    color: blue,
+    color: colors.blue,
     textAlign: 'left',
   },
   hintText: {

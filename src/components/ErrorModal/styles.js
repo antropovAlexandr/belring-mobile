@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import { black06 } from '../../consts/colors';
+import { colors, fonts } from 'Consts';
 
 const styles = StyleSheet.create({
   message: {
-    color: black06,
-    fontFamily: 'Roboto',
+    ...fonts.DEFAULT_NORMAL,
+    color: colors.black06,
     fontSize: 16,
     lineHeight: 16,
     letterSpacing: 0.4,

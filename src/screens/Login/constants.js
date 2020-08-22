@@ -5,3 +5,5 @@ export const USER_ROLE = {
    MODERATOR: 'moderator',
    ADMIN: 'admin',
 };
+export const EMAIL_INPUT_NAME = 'email';
+export const PASSWORD_INPUT_NAME = 'password';
