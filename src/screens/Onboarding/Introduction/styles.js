@@ -1,5 +1,5 @@
-import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
-import { black054, black087, blueLight, blue } from '../../../consts/colors'
+import { StyleSheet } from 'react-native';
+import { colors, fonts } from 'Consts';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,19 +17,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   closeIcon: {
-    fontSize: 24,
-    color: black054,
+    fontSize: 22,
+    color: colors.black054,
   },
   footer: {
-    width: '100%',
     paddingHorizontal: 20,
     paddingBottom: 25,
   },
   slideContainer: {
     flex: 1,
-    height: '100%',
-    width: '100%',
-    flexDirection: 'column',
     alignItems: 'center',
     marginBottom: 50,
   },
@@ -43,46 +39,49 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   article: {
-    paddingTop: 2,
+    paddingTop: 10,
     width: '85%',
     minHeight: '27%',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
+    ...fonts.LATO_SEMIBOLD,
     textAlign: 'center',
-    fontFamily: 'Lato-Semibold',
     fontSize: 24,
-    lineHeight: 26,
-    color: blue,
+    lineHeight: 30,
+    color: colors.blue,
   },
   descriptionContainer: {
-    paddingTop: 5,
     flex: 1,
-    width: '82%',
     justifyContent: 'center',
+    width: '82%',
+    paddingTop: 16,
   },
   description: {
-    textAlign: 'center',
-    fontFamily: 'Roboto',
+    ...fonts.DEFAULT_NORMAL,
     fontSize: 12,
     letterSpacing: 0.4,
     lineHeight: 16,
-    color: black087,
+    color: colors.black087,
+    textAlign: 'center',
   },
   dot: {
     width: 6,
     height: 6,
-    marginRight: 9,
-    marginLeft: 9,
+    marginHorizontal: 9,
     borderRadius: 5,
-    backgroundColor: blueLight,
+    backgroundColor: colors.blueLight,
   },
   backgroundActive: {
-    backgroundColor: blue,
+    backgroundColor: colors.blue,
   },
   pagination: {
     bottom: 20,
+  },
+  nextButton: {
+    borderRadius: 4,
+    backgroundColor: colors.blue,
   },
 });
 

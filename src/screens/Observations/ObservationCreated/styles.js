@@ -1,40 +1,40 @@
-import { StyleSheet } from 'react-native'
-import {black02, black087, black06, greenLight, whiteGray} from '../../../consts/colors'
+import { StyleSheet } from 'react-native';
+
+import { colors, fonts } from 'Consts';
 
 export default StyleSheet.create({
-    scrollContainer: {
-        marginHorizontal: 20,
-    },
-    container: {
-        flex: 1,
-        paddingTop: 10,
-        paddingBottom: 20,
-    },
-    titleBlock: {
-        paddingVertical: 10,
-    },
-    title: {
-        fontSize: 25,
-        lineHeight: 30,
-        color: black087,
-        fontFamily: 'Lato-Semibold',
-        paddingBottom: 7,
-    },
-    description: {
-        color: black06,
-        fontFamily: "Roboto",
-        fontSize: 14,
-        letterSpacing: 0.25,
-        lineHeight: 20
-    },
-    btnContainer: {
-        flex: 1,
-        alignItems: 'center',
-        marginTop: 10,
-    },
-    button: {
-        width: '100%',
-        marginBottom: 17,
-    }
+  scrollContainer: {
+    marginHorizontal: 20,
+  },
+  container: {
+    flex: 1,
+    paddingTop: 10,
+    paddingBottom: 20,
+  },
+  titleBlock: {
+    paddingVertical: 10,
+  },
+  title: {
+    ...fonts.LATO_SEMIBOLD,
+    fontSize: 25,
+    lineHeight: 30,
+    color: colors.black087,
+    paddingBottom: 7,
+  },
+  description: {
+    ...fonts.DEFAULT_NORMAL,
+    color: colors.black06,
+    fontSize: 14,
+    letterSpacing: 0.25,
+    lineHeight: 20,
+  },
+  btnContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  button: {
+    width: '100%',
+    marginBottom: 17,
+  },
 });
-

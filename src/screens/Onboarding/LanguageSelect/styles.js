@@ -1,26 +1,21 @@
-import {StyleSheet} from 'react-native';
-import { grayMedium } from '../../../consts/colors'
+import { StyleSheet } from 'react-native';
+
+import { colors } from 'Consts';
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    content: {
-        flex: 1,
-        minHeight: '10%',
-    },
-    buttonsContainer: {
-        alignItems: 'center',
-        flex: 1,
-        paddingTop: 30,
-    },
-    buttonStyle: {
-        marginTop: 20,
-        marginBottom: 20,
-        width: 250,
-        borderWidth: 1,
-        borderColor: grayMedium,
-    },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingBottom: 110,
+  },
+  buttonStyle: {
+    marginVertical: 18,
+    width: 192,
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: colors.grayMedium,
+  },
 });
 
-export {styles};
+export { styles };
