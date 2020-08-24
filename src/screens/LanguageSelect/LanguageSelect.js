@@ -13,9 +13,9 @@ const LanguageSelect = () => {
     const dispatch = useDispatch();
     const {t} = useTranslation();
 
-    const onChangeLanguage = (languge) => {
+    const onChangeLanguage = (language) => {
         dispatch(NavigationActions.navigate({routeName: INTRODUCTION_SCREEN}));
-        i18n.changeLanguage(languge);
+        i18n.changeLanguage(language);
     };
 
     return (
@@ -33,7 +33,7 @@ const LanguageSelect = () => {
                     mode="outlined"
                     style={styles.buttonStyle}
                     onPress={() => onChangeLanguage(LANG_TYPES.EN)}
-                >{t('languageSelect.eglish')}</Button>
+                >{t('languageSelect.english')}</Button>
             </View>
         </View>
     );

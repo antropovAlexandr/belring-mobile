@@ -33,7 +33,7 @@
   },
   "languageSelect": {
     "russian": "Русский язык",
-    "eglish": "Английский язык"
+    "english": "Английский язык"
   },
   "validationError": {
     "email": "Введите корректный E-mail",
@@ -90,8 +90,6 @@
     "delete": "УДАЛИТЬ",
     "declineChangesTitle": "Выйти без изменений?",
     "declineChangesDescription": "Вы уверены, что хотите выйти, не отправив изменения на сервер?",
-    "applyDeclineChanges": "ВЫЙТИ",
-    "cancelDeclineChanges": "ОТМЕНА",
     "tag": "Метка",
     "addInfoAboutTag": "Добавьте данные о номере метки"
   },

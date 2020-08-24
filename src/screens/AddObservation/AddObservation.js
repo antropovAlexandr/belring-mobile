@@ -24,11 +24,10 @@ const AddObservation = () => {
             <Form
                 onSubmit={onSubmit}
                 validate={validation}
-                render={({handleSubmit}) => (
+                render={() => (
                     <AddObservationSteps />
                 )}
             />
-            {/*<ErrorModal error={error} action={modalAction} />*/}
         </>
     );
 };

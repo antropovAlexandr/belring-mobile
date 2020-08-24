@@ -19,21 +19,22 @@ const Introduction = () => {
     const [sliderIndex, setSliderIndex] = useState(0);
     const sliderRef = useRef(null);
 
-    const goNextSlide = () => {
+    const goNextSlide = useCallback(() => {
         if (sliderRef && sliderRef.current) sliderRef.current.scrollBy(1);
-    };
-    const navigateToLoginScreen = () => {
+    }, [sliderRef]);
+
+    const navigateToLoginScreen = useCallback(() => {
         dispatch(UserActions.setIsFirstEntry());
         dispatch(NavigationActions.navigate({routeName: LOGIN_SCREEN}));
-    };
+    }, [dispatch]);
 
-    const onSliderChanged = (index) => setSliderIndex(index);
-    const onPressClose = useCallback(() => { navigateToLoginScreen() });
+    const onSliderChanged = useCallback((index) => setSliderIndex(index), [setSliderIndex]);
+    const onPressClose = useCallback(() => { navigateToLoginScreen() }, [navigateToLoginScreen]);
     const onPressNext = useCallback(() => {
         if (sliderIndex >= MAX_COUNT_SLIDER_ITEMS - 1) {
             navigateToLoginScreen()
         } else goNextSlide();
-    });
+    }, [sliderIndex, navigateToLoginScreen, goNextSlide]);
 
     return (
         <View style={styles.container}>

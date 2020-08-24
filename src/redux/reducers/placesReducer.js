@@ -9,8 +9,6 @@ const initialState = {
 const {Types, Creators} = createActions({
     loadPlacesRequest: [],
     loadPlacesSuccess: ['token', 'refreshToken'],
-    // setUserError: ['error'],
-
 });
 
 const loadPlacesRequest = (state) => ({...state, loading: true});

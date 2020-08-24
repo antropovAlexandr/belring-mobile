@@ -31,7 +31,7 @@
   },
   "languageSelect": {
     "russian": "Russian",
-    "eglish": "Eglish"
+    "english": "Eglish"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
@@ -86,8 +86,6 @@
     "delete": "REMOVE",
     "declineChangesTitle": "Exit without changes?",
     "declineChangesDescription": "Are you sure you want to exit and lose your changes?",
-    "applyDeclineChanges": "EXIT",
-    "cancelDeclineChanges": "CANCEL",
     "tag": "Метка",
     "addInfoAboutTag": "Добавьте данные о номере метки"
   },
