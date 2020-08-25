@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { Dialog, Paragraph, Text, Button, Portal } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 import styles from './styles';
@@ -22,8 +22,8 @@ const ErrorModal = () => {
   if (!error || !error.message) return null;
   const { message, code } = error;
 
-  const errorMessage =
-    t(`backendError.${code}`) !== `backendError.${code}` ? t(`backendError.${code}`) : message;
+  const errorMessage = useMemo(() => t(`backendError.${code}`) !== `backendError.${code}` ? t(`backendError.${code}`) : message, [code, message])
+
 
   return (
     <Portal>

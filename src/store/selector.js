@@ -14,8 +14,6 @@ export const appLoadingSelector = createSelector(
 );
 
 export const getAllReducersErrorsStates = state => {
-  // const stateItem = Object.values(state).find(item => item.error);
-  // return stateItem?.error;
   return Object.keys(state).reduce(
     (acc, item) => (state[item].error !== undefined ? [...acc, state[item].error] : [...acc]),
     []

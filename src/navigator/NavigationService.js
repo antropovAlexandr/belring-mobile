@@ -1,3 +1,4 @@
+// TODO: convert to hook
 let navigationRef = null;
 
 function setRef(navigatorRef) {

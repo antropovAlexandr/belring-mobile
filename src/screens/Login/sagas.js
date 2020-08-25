@@ -88,23 +88,10 @@ function sagasWithClient(client) {
         }
     }
 
-    function* refreshToken({ refreshToken }) {
-        try {
-            const refreshToken = yield select(userRefreshTokenSelector);
-            const data = yield call(client.refreshToken, { refreshToken });
-            // console.log('data', data);
-            // yield put(AuthActions.resetPasswordSuccess());
-            // yield call(navigate,  REGISTRATION_NOTIFICATION_SCREEN, {origin: 'passwordRecovery'});
-        } catch (e) {
-            yield put(userFailure(e));
-        }
-    }
-
     function* watchActions(): Generator<*, *, *> {
         yield takeLatest(loginUserRequest, login);
         yield takeLatest(registrationUserRequest, registration);
         yield takeLatest(resetPasswordRequest, resetPassword);
-        // yield takeLatest(UserTypes.LOAD_USER_REQUEST, loadUser);
         yield takeLatest(updateUserEmailRequest, updateEmail);
         yield takeLatest(updateUserPasswordRequest, updatePassword);
         yield takeLeading(updateUserPersonalDataRequest, updatePersonalDate);

@@ -6,12 +6,12 @@ import {convertCoordinateArrayToObj} from "./utils";
 const MapScreenView = ({ setCoordinateToForm, initialCoordinate }) => {
     const [coordinatePoint, setCoordinatePoint] = useState(initialCoordinate);
 
-    const onPress = ({ geometry }) => {
+    const onPress = useCallback(({ geometry }) => {
         if (geometry && geometry.coordinates) {
             setCoordinatePoint(geometry.coordinates);
             setCoordinateToForm(convertCoordinateArrayToObj(geometry.coordinates));
         }
-    };
+    }, [setCoordinatePoint, setCoordinateToForm])
 
     const handleSelectPoint = useCallback(() => {
         setCoordinatePoint(null);

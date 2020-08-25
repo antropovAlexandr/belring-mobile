@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -20,9 +20,9 @@ const LoginView = ({
 
   const [secureTextEntry, setSecureTextEntry] = useState(true);
 
-  function handleShowHidePassword() {
+  const handleShowHidePassword = useCallback(() => {
     setSecureTextEntry(!secureTextEntry);
-  }
+  }, [setSecureTextEntry])
 
   return (
     <ScrollView

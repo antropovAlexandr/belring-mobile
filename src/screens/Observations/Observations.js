@@ -7,20 +7,11 @@ import {loadObservationsRequest} from "./reducer";
 import {observationLoadingSelector, observationsSelector} from "./selector";
 
 const Observations = ({ navigation }) => {
-
     const dispatch = useDispatch();
 
     const loading = useSelector(observationLoadingSelector);
     const observations = useSelector(observationsSelector);
 
-
-
-    // useEffect(() => {
-    //     if(id) {
-    //         // dispatch(InitialDataActions.initialDataRequest());
-    //         // dispatch(UserActions.loadUserRequest(id));
-    //     }
-    // }, [id]);
     useFocusEffect(
         useCallback(() => { dispatch(loadObservationsRequest()) }, [])
     );

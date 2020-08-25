@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-// import { black087 } from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,7 +15,6 @@ const styles = StyleSheet.create({
   label: {
     flex: 1,
     flexWrap: 'wrap',
-    // color: black087,
     fontFamily: 'Roboto',
     fontSize: 16,
     letterSpacing: 0.15,
