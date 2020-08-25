@@ -1,22 +1,24 @@
-export const white = '#ffffff';
-export const whiteGray = '#FAFAFA';
-export const firebrick = '#b00020';
-export const textBlack = '#090a10';
-export const black = '#000000';
-export const black087 = 'rgba(0,0,0,0.87)';
-export const blackMedium = '#212121';
-export const black02 = 'rgba(0,0,0,0.2)';
-export const black06 = 'rgba(0,0,0,0.6)';
-export const black012 = 'rgba(0,0,0,0.12)';
-export const black032 = 'rgba(0,0,0,0.32)';
-export const black054 = 'rgba(0,0,0,0.54)';
-export const hexGray = '#666666';
-export const green = '#546e7a';
-export const greenLight = '#5EE2A0';
-export const gray = '#E4E4E4';
-export const grayLight = 'rgba(98,2,238,0)';
-export const grayMedium = '#c9c7c7';
-export const blue = '#0A3651';
-export const blueLight = '#abc1d1';
-export const blueMedium = '#1D455E';
-export const blueMediumSecond = '#305E80';
+export const colors = {
+  white: '#ffffff',
+  whiteGray: '#FAFAFA',
+  firebrick: '#b00020',
+  textBlack: '#090a10',
+  black: '#000000',
+  black087: 'rgba(0,0,0,0.87)',
+  blackMedium: '#212121',
+  black02: 'rgba(0,0,0,0.2)',
+  black06: 'rgba(0,0,0,0.6)',
+  black012: 'rgba(0,0,0,0.12)',
+  black032: 'rgba(0,0,0,0.32)',
+  black054: 'rgba(0,0,0,0.54)',
+  hexGray: '#666666',
+  green: '#546e7a',
+  greenLight: '#5EE2A0',
+  gray: '#E4E4E4',
+  grayLight: 'rgba(98,2,238,0)',
+  grayMedium: '#c9c7c7',
+  blue: '#0A3651',
+  blueLight: '#abc1d1',
+  blueMedium: '#1D455E',
+  blueMediumSecond: '#305E80',
+};

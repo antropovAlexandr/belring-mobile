@@ -1,45 +1,45 @@
-import React from 'react'
-import {createStackNavigator} from "@react-navigation/stack";
-import LoginScreen from '../screens/LoginScreen'
-import RegistrationScreen from '../screens/RegistrationScreen'
-import RegistrationNotificationScreen from "../screens/RegistrationNotificationScreen";
-import PasswordRecovery from "../screens/PasswordRecovery";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useTranslation } from 'react-i18next';
+
+import Login from 'Screens/Login';
+import Registration from 'Screens/Login/Registration';
+import RegistrationNotification from 'Screens/Login/RegistrationNotification';
+import PasswordRecovery from 'Screens/Login/PasswordRecovery';
+import AboutApp from 'Screens/AboutApp';
+
 import {
-    LOGIN_SCREEN,
-    PASSWORD_RECOVERY,
-    REGISTRATION_NOTIFICATION_SCREEN,
-    REGISTRATION_SCREEN
-} from '../screens/constants'
-import {defaultConfig} from './configs'
+  LOGIN_SCREEN,
+  PASSWORD_RECOVERY,
+  REGISTRATION_NOTIFICATION_SCREEN,
+  REGISTRATION_SCREEN,
+  ABOUT_APP_SCREEN,
+} from '../screens/constants';
+import { defaultConfig } from './configs';
+import headerStyles from './headerStyles';
 
 const Stack = createStackNavigator();
 
-const LoginStack = () => (
-    <Stack.Navigator
-        initialRouteName={LOGIN_SCREEN}
-        screenOptions={defaultConfig}
-    >
-        <Stack.Screen
-            name={LOGIN_SCREEN}
-            component={LoginScreen}
-            options={{ headerShown: false }}
-        />
-        <Stack.Screen
-            name={REGISTRATION_SCREEN}
-            component={RegistrationScreen}
-            options={{ headerShown: false }}
-        />
-        <Stack.Screen
-            name={REGISTRATION_NOTIFICATION_SCREEN}
-            component={RegistrationNotificationScreen}
-            options={{ headerShown: false }}
-        />
-        <Stack.Screen
-            name={PASSWORD_RECOVERY}
-            component={PasswordRecovery}
-            options={{ headerShown: false }}
-        />
-    </Stack.Navigator>
-);
+const LoginStack = () => {
+  const { t } = useTranslation();
 
-export default LoginStack
+  return (
+    <Stack.Navigator initialRouteName={LOGIN_SCREEN} screenOptions={defaultConfig}>
+      <Stack.Screen name={LOGIN_SCREEN} component={Login} />
+      <Stack.Screen name={REGISTRATION_SCREEN} component={Registration} />
+      <Stack.Screen name={REGISTRATION_NOTIFICATION_SCREEN} component={RegistrationNotification} />
+      <Stack.Screen name={PASSWORD_RECOVERY} component={PasswordRecovery} />
+      <Stack.Screen
+        name={ABOUT_APP_SCREEN}
+        component={AboutApp}
+        options={{
+          headerShown: true,
+          title: t('aboutApp.screenTitle'),
+          ...headerStyles,
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
+
+export default LoginStack;

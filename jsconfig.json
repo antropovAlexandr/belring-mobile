@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "Src": ["src"],
+      "Src/*": ["src/*"],
+      "Components": ["srs/components"],
+      "Components/*": ["srs/components/*"],
+      "Screens": ["src/screens"],
+      "Screens/*": ["src/screens/*"],
+      "Consts": ["src/consts"],
+      "Consts/*": ["src/consts/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*"]
+}
