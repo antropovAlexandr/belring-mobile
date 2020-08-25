@@ -1,13 +1,20 @@
 import React, { useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { APP_STACK, LOGIN_STACK } from 'Consts/screenNames'
+import { APP_STACK, LOGIN_STACK, INTRODUCTION_STACK } from '../constants'
 import SplashScreen from 'react-native-splash-screen'
-import { userSelector } from '../../selectors/userSelector'
+import { userTokenSelector, userFirstEntrySelector } from '../../selectors/userSelector'
+
+const getRoutName = (token, isFirstEntry) => {
+  if (token) return APP_STACK;
+  return (isFirstEntry) ? INTRODUCTION_STACK : LOGIN_STACK;
+};
 
 const AppLoadingScreen = (props) => {
-  const token = useSelector(userSelector);
+  const token = useSelector(userTokenSelector);
+  const isFirstEntry = useSelector(userFirstEntrySelector);
+
   const bootstrap = useCallback(() => {
-    const routeName = token ? APP_STACK : LOGIN_STACK;
+    const routeName = getRoutName(token, isFirstEntry);
     props.navigation.navigate(routeName)
   }, [token]);
 

@@ -5,7 +5,7 @@ import Store from 'Redux/store'
 import { BackHandler, StatusBar, SafeAreaView } from 'react-native'
 import { createReduxContainer } from 'react-navigation-redux-helpers'
 import {I18nextProvider} from 'react-i18next';
-import MainNavigator from 'Navigator'
+import MainNavigator from './src/navigator'
 import Root from 'Screens/RootScreen';
 import CustomSpinner from 'Components/customSpinner'
 import { colors } from 'Consts/themes'

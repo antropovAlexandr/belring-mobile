@@ -31,6 +31,10 @@
     "close": "Закрыть",
     "backendErrorMessage": "Ошибка со входом, проверьте свое интернет соединение, если с ним нет проблем, попробуйте ввести правильный логин и пароль еще раз"
   },
+  "languageSelect": {
+    "russian": "Русский язык",
+    "english": "Английский язык"
+  },
   "validationError": {
     "email": "Введите корректный E-mail",
     "password": "Длина пароля должна составлять минимум 4 символа",
@@ -39,6 +43,8 @@
     "phone": "Поле Телефон не должно быть пустым"
   },
   "addEditObservation": {
+    "titleEmpty": "У вас ещё нет наблюдений",
+    "descriptionEmpty": "И если вы увидели птицу с кольцом или просто нашли кольцо – самое время поделиться этой информацией с нами!",
     "editing": "Редактирование",
     "birdHeader": "Птица",
     "birdDescription": "Опишите птицу и обстоятельства, в которых вы её увидели.",
@@ -66,7 +72,7 @@
     "birdSex": "Пол",
     "birdAge": "Возраст",
     "birdWas": "Состояние птицы",
-    "ringType": "Тип метки",
+    "ringType": "Вид метки",
     "ringMaterial": "Материал метки",
     "ringColor": "Цвет",
     "ringLocation": "Расположение на теле",
@@ -84,8 +90,8 @@
     "delete": "УДАЛИТЬ",
     "declineChangesTitle": "Выйти без изменений?",
     "declineChangesDescription": "Вы уверены, что хотите выйти, не отправив изменения на сервер?",
-    "applyDeclineChanges": "ВЫЙТИ",
-    "cancelDeclineChanges": "ОТМЕНА"
+    "tag": "Метка",
+    "addInfoAboutTag": "Добавьте данные о номере метки"
   },
   "observationCreated": {
     "observationCreatedTitle": "Вы успешно добавили наблюдение",

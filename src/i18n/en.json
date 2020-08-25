@@ -29,6 +29,10 @@
     "close": "Close",
     "backendErrorMessage": "Error with login, check your internet connectiond, if it's ok, check login and password"
   },
+  "languageSelect": {
+    "russian": "Russian",
+    "english": "English"
+  },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
     "password": "Password length must be at least 4 characters",
@@ -82,8 +86,8 @@
     "delete": "REMOVE",
     "declineChangesTitle": "Exit without changes?",
     "declineChangesDescription": "Are you sure you want to exit and lose your changes?",
-    "applyDeclineChanges": "EXIT",
-    "cancelDeclineChanges": "CANCEL"
+    "tag": "Метка",
+    "addInfoAboutTag": "Добавьте данные о номере метки"
   },
   "observationCreated": {
     "observationCreatedTitle": "Observation has been successfully added",
