@@ -31,7 +31,7 @@
   },
   "languageSelect": {
     "russian": "Russian",
-    "english": "Eglish"
+    "english": "English"
   },
   "validationError": {
     "email": "Email should follow the mask `name@email.com`",
