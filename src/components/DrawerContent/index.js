@@ -14,7 +14,7 @@ import {ABOUT_APP_SCREEN, OBSERVATIONS_SCREEN, PLACES, SETTINGS_SCREEN} from "..
 import {logoutUserRequest} from "../../screens/Login/reducer";
 import {userFirstNameSelector, userLastNameSelector, userRoleSelector} from "../../screens/Login/selector";
 
-const logoImg = require('assets/images/logo/logo.png');
+const logoImg = require('../../assets/images/logo/logo.png');
 const ICON_SIZE = 26;
 
 export function DrawerContent({ progress, navigation }) {
