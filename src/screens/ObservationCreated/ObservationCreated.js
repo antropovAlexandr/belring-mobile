@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import {ScrollView, Text, View} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
@@ -16,6 +16,15 @@ const ObservationCreated = ({ navigation }) => {
     const dispatch = useDispatch();
     const {t} = useTranslation();
 
+    const handlePress = useCallback(() => dispatch(NavigationActions.navigate({routeName: ADD_OBSERVATION, params: {
+        initialValues: {
+          [TYPE_OF_BIRD]: values[TYPE_OF_BIRD],
+          [BIRD_SEX]: values[BIRD_SEX],
+          [BIRD_AGE]: values[BIRD_AGE],
+          [BIRD_WAS]: values[BIRD_WAS],
+          [BIRD_STATUS]: values[BIRD_STATUS],
+        }}})), [values, dispatch])
+
     return (
         <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
@@ -27,14 +36,7 @@ const ObservationCreated = ({ navigation }) => {
             <View style={styles.btnContainer}>
                 <Button
                     mode="outlined"
-                    onPress={() => dispatch(NavigationActions.navigate({routeName: ADD_OBSERVATION, params: {
-                            initialValues: {
-                                [TYPE_OF_BIRD]: values[TYPE_OF_BIRD],
-                                [BIRD_SEX]: values[BIRD_SEX],
-                                [BIRD_AGE]: values[BIRD_AGE],
-                                [BIRD_WAS]: values[BIRD_WAS],
-                                [BIRD_STATUS]: values[BIRD_STATUS],
-                            }}}))}
+                    onPress={handlePress}
                     style={styles.button}
                 >
                     {t('observationCreated.createOneMoreBird')}

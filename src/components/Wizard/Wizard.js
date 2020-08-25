@@ -16,15 +16,15 @@ const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
         setCurrentPage(prevPage => Math.max(prevPage - 1, 0))
     }, [children]);
 
-    const validate = (values) => {
+    const validate = useCallback((values) => {
         const { props } = activePage;
         return props.validate ? props.validate(values) : {};
-    };
+    }, [activePage])
 
-    const handleSubmit = (values, { reset }) => {
+    const handleSubmit = useCallback((values, { reset }) => {
         if (isLastPage) return onSubmit(values, { reset });
         return handleNext(values);
-    };
+    }, [isLastPage, handleNext, onSubmit])
 
     return (
         <Form
@@ -35,7 +35,7 @@ const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
             {({ handleSubmit, submitting, values = {}, form }) => (
                 <>
                     {React.cloneElement(activePage, { values, setShowFooter, form })}
-                    {(isShowFooter) ? renderFooter(handleSubmit, handlePrevious, isLastPage, isFirstPage) : null}
+                    {isShowFooter && renderFooter(handleSubmit, handlePrevious, isLastPage, isFirstPage)}
                 </>
             )}
         </Form>

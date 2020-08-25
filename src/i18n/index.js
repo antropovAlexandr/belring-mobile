@@ -22,7 +22,7 @@ i18n.use(initReactI18next).init({
         [LANG_TYPES.EN]: { translation: en },
         [LANG_TYPES.RU]: { translation: ru },
     },
-    debug: true,
+    debug: __DEV__,
 });
 
 export default i18n;

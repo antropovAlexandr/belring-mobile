@@ -1,7 +1,7 @@
 import { ImageStyle, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import { black054, black087, blueLight, blue } from '../../../../../consts/colors'
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'space-between',
@@ -54,6 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 };
-
-export { styles, hitSlop };
+export const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 };

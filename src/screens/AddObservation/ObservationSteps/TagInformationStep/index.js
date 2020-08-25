@@ -44,7 +44,7 @@ const TagInformationStep = ({ values, setShowFooter, form }) => {
                         </View>
                         <FieldArray name={RINGS}>
                             {({fields}) => {
-                                const addNewRings = useCallback(() => fields.push(undefined));
+                                const addNewRings = useCallback(() => fields.push(undefined), [fields]);
                                 return (
                                     <>
                                         {fields.map((name) =>
