@@ -30,8 +30,7 @@ const resetPasswordSuccess = (state) => ({...state, loading: false});
 const setUserError = (state, { error }) => ({...state, loading: false, error});
 const clearUserError = (state) => ({...state, error: null});
 const setIsFirstEntry = (state) => ({...state, isFirstEntry: false});
-
-export const LOGOUT = () => initialState;
+const logout = () => ({ ...initialState, isFirstEntry: false});
 
 export const reducer = createReducer(initialState, {
     [Types.LOGIN_REQUEST]: loginRequest,
@@ -43,7 +42,7 @@ export const reducer = createReducer(initialState, {
     [Types.SET_USER_ERROR]: setUserError,
     [Types.CLEAR_USER_ERROR]: clearUserError,
     [Types.SET_IS_FIRST_ENTRY]: setIsFirstEntry,
-    LOGOUT,
+    [Types.LOGOUT]: logout,
 });
 
 export {Types as UserTypes, Creators as UserActions}

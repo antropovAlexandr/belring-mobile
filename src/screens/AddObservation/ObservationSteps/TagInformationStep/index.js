@@ -16,6 +16,15 @@ import PreviewPhoto from "./PreviewPhoto";
 
 const {PHOTOS, PHOTO, RINGS, TAG_NUMBER, TAG_TYPE} = FIELD_NAME;
 
+const renderDeleteButton = (index, onRemoveUser, translate) => {
+    if (index === 0) return null;
+    return (
+        <Button mode="text" onPress={() => onRemoveUser(index)} style={styles.deleteBtn}>
+            {translate('addEditObservation.delete')}
+        </Button>
+    )
+};
+
 const TagInformationStep = ({ values, setShowFooter, form }) => {
     const [isShowPreview, setIsShowPreview] = useState(false)
     const {t} = useTranslation();
@@ -45,29 +54,34 @@ const TagInformationStep = ({ values, setShowFooter, form }) => {
                         <FieldArray name={RINGS}>
                             {({fields}) => {
                                 const addNewRings = useCallback(() => fields.push(undefined), [fields]);
+                                const onRemoveUser = useCallback(index => fields.remove(index), [fields]);
                                 return (
                                     <>
-                                        {fields.map((name) =>
-                                            <View key={name}>
-                                                <FormFieldWithTextInput
-                                                    name={`${name}.${TAG_NUMBER}`}
-                                                    label={t('addEditObservation.ringNumber')}
-                                                    mode="flat"
-                                                />
-                                                <FormFieldWithDropdown
-                                                    name={`${name}.${TAG_TYPE}`}
-                                                    setFormValue={form.mutators.setFormValue}
-                                                    items={[
-                                                        {
-                                                            label: '1', desc_eng: '1',
-                                                        }, {label: '2', desc_eng: '2',}
-                                                    ]}
-                                                    valueField="desc_eng"
-                                                    label={t('addEditObservation.ringType')}
-                                                />
-                                            </View>
-                                        )}
-                                        <Button mode="outlined" onPress={addNewRings}>
+                                        {fields.map((name, index) => {
+
+                                            return (
+                                                <View key={name}>
+                                                    <FormFieldWithTextInput
+                                                        name={`${name}.${TAG_NUMBER}`}
+                                                        label={t('addEditObservation.ringNumber')}
+                                                        mode="flat"
+                                                    />
+                                                    <FormFieldWithDropdown
+                                                        name={`${name}.${TAG_TYPE}`}
+                                                        setFormValue={form.mutators.setFormValue}
+                                                        items={[
+                                                            {
+                                                                label: '1', desc_eng: '1',
+                                                            }, {label: '2', desc_eng: '2',}
+                                                        ]}
+                                                        valueField="desc_eng"
+                                                        label={t('addEditObservation.ringType')}
+                                                    />
+                                                    {renderDeleteButton(index, onRemoveUser, t)}
+                                                </View>
+                                            );
+                                        })}
+                                        <Button mode="outlined" onPress={addNewRings} style={styles.oneMoreRingBtn}>
                                             {t('addEditObservation.oneMoreRing')}
                                         </Button>
                                     </>

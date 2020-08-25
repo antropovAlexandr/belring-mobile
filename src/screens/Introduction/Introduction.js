@@ -5,7 +5,6 @@ import { Button } from 'react-native-paper';
 import {useDispatch} from "react-redux";
 import {useTranslation} from "react-i18next";
 import Slides from './Slides';
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
 import {UserActions} from "../../redux/reducers/userReducer";
 import { LOGIN_SCREEN } from "../constants";
 import {styles, hitSlop} from './styles';
@@ -25,8 +24,7 @@ const Introduction = () => {
 
     const navigateToLoginScreen = useCallback(() => {
         dispatch(UserActions.setIsFirstEntry());
-        dispatch(NavigationActions.navigate({routeName: LOGIN_SCREEN}));
-    }, [dispatch]);
+    };
 
     const onSliderChanged = useCallback((index) => setSliderIndex(index), [setSliderIndex]);
     const onPressClose = useCallback(() => { navigateToLoginScreen() }, [navigateToLoginScreen]);

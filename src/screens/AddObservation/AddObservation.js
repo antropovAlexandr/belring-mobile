@@ -1,39 +1,38 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {useTranslation} from "react-i18next";
 import arrayMutators from 'final-form-arrays';
-import {FIELD_NAME} from "./constants";
 import Wizard from "../../components/Wizard";
-
 import TagInformationStep from "./ObservationSteps/TagInformationStep";
 import BirdInformationStep from "./ObservationSteps/BirdInformationStep";
+import ObstaclesInformationStep from "./ObservationSteps/ObstaclesInformationStep";
+import ErrorModal from "../../components/ErrorModal";
 import FooterNav from "./FooterNav";
 import {birdInformationValidation, obstaclesInformationValidation, tagInformationValidation} from "./validation";
-import ObstaclesInformationStep from "./ObservationSteps/ObstaclesInformationStep";
 import {ObservationActions} from "../../redux/reducers/observationReducer";
-import ErrorModal from "../../components/ErrorModal";
 import {observationErrorSelector} from "../../selectors/observationSelector";
-import {NavigationActions} from "../../redux/reducers/navigatorReducer";
+import {FIELD_NAME} from "./constants";
 import {OBSERVATION_CREATED} from "../constants";
 
-const {PHOTOS, RINGS, DATE} = FIELD_NAME;
+const {PHOTOS, RINGS} = FIELD_NAME;
 
-const AddObservation = ({ navigation }) => {
-    const initialValuesFromNavigation = navigation.getParam('initialValues', {});
+const AddObservation = ({ route, navigation }) => {
+    const { params = {} } = route;
+    const { initialValues = {} } = params;
     const dispatch = useDispatch();
     const error = useSelector(observationErrorSelector);
     const {t} = useTranslation();
 
-    const initialValues = useMemo(() => ({
-        ...initialValuesFromNavigation,
+    const initialValuesForm = useMemo(() => ({
+        ...initialValues,
         [PHOTOS]: [undefined],
         [RINGS]: [undefined]
-    }), [initialValuesFromNavigation]);
+    }), [initialValues]);
 
     const onSubmit = (values, { reset })=> {
         const successAction = () => {
             reset();
-            dispatch(NavigationActions.navigate({routeName: OBSERVATION_CREATED, params: { values }}));
+            navigation.navigate(OBSERVATION_CREATED, { values });
         };
         dispatch(ObservationActions.addObservationRequest(values, successAction));
     };
@@ -48,7 +47,7 @@ const AddObservation = ({ navigation }) => {
                             changeValue(state, fieldName, () => value)
                         },
                     },
-                    initialValues,
+                    initialValues: initialValuesForm,
                     keepDirtyOnReinitialize: false,
                 }}
                 onSubmit={onSubmit}
