@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { colors } from 'Consts';
+import { colors } from 'Consts'
 
 export default StyleSheet.create({
   container: {
@@ -28,4 +28,4 @@ export default StyleSheet.create({
     top: 0,
     zIndex: 100,
   },
-});
+})

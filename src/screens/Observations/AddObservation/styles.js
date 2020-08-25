@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts } from 'Consts';
+import { StyleSheet } from 'react-native'
+import { colors, fonts } from 'Consts'
 
 export default StyleSheet.create({
   scrollContainer: {
@@ -73,4 +73,4 @@ export default StyleSheet.create({
   mobileAppText: {
     color: colors.greenLight,
   },
-});
+})

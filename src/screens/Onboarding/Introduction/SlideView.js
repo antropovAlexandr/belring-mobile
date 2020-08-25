@@ -1,12 +1,12 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
+import React from 'react'
+import { View, Text, Image } from 'react-native'
 
-import { styles } from './styles';
+import { styles } from './styles'
 
 const SlideView = ({ image, title, description }) => (
   <View style={styles.slideContainer}>
     <View style={styles.slideImgContainer}>
-      <Image resizeMode="cover" style={styles.slideImg} source={image} />
+      <Image resizeMode='cover' style={styles.slideImg} source={image} />
     </View>
     <View style={styles.article}>
       <Text style={styles.title}>{title}</Text>
@@ -15,6 +15,6 @@ const SlideView = ({ image, title, description }) => (
       </View>
     </View>
   </View>
-);
+)
 
-export default SlideView;
+export default SlideView

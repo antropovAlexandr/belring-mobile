@@ -1,12 +1,12 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack'
+import { useTranslation } from 'react-i18next'
 
-import Login from 'Screens/Login';
-import Registration from 'Screens/Login/Registration';
-import RegistrationNotification from 'Screens/Login/RegistrationNotification';
-import PasswordRecovery from 'Screens/Login/PasswordRecovery';
-import AboutApp from 'Screens/AboutApp';
+import Login from 'Screens/Login'
+import Registration from 'Screens/Login/Registration'
+import RegistrationNotification from 'Screens/Login/RegistrationNotification'
+import PasswordRecovery from 'Screens/Login/PasswordRecovery'
+import AboutApp from 'Screens/AboutApp'
 
 import {
   LOGIN_SCREEN,
@@ -14,14 +14,14 @@ import {
   REGISTRATION_NOTIFICATION_SCREEN,
   REGISTRATION_SCREEN,
   ABOUT_APP_SCREEN,
-} from '../screens/constants';
-import { defaultConfig } from './configs';
-import headerStyles from './headerStyles';
+} from '../screens/constants'
+import { defaultConfig } from './configs'
+import headerStyles from './headerStyles'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const LoginStack = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Stack.Navigator initialRouteName={LOGIN_SCREEN} screenOptions={defaultConfig}>
@@ -39,7 +39,7 @@ const LoginStack = () => {
         }}
       />
     </Stack.Navigator>
-  );
-};
+  )
+}
 
-export default LoginStack;
+export default LoginStack

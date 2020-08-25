@@ -1,15 +1,15 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { useTranslation } from 'react-i18next';
-import ObservationCreated from '../screens/Observations/ObservationCreated';
-import AddPlace from '../screens/Places/AddPlace';
-import Places from '../screens/Places';
-import MapScreen from '../screens/MapScreen';
-import Observations from '../screens/Observations';
-import AddObservation from '../screens/Observations/AddObservation';
-import Settings from '../screens/Settings';
-import AboutApp from '../screens/AboutApp';
-import Header from '../components/Header';
+import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack'
+import { useTranslation } from 'react-i18next'
+import ObservationCreated from '../screens/Observations/ObservationCreated'
+import AddPlace from '../screens/Places/AddPlace'
+import Places from '../screens/Places'
+import MapScreen from '../screens/MapScreen'
+import Observations from '../screens/Observations'
+import AddObservation from '../screens/Observations/AddObservation'
+import Settings from '../screens/Settings'
+import AboutApp from '../screens/AboutApp'
+import Header from '../components/Header'
 import {
   ADD_OBSERVATION,
   OBSERVATION_CREATED,
@@ -19,19 +19,19 @@ import {
   OBSERVATIONS_SCREEN,
   SETTINGS_SCREEN,
   ABOUT_APP_SCREEN,
-} from '../screens/constants';
-import { defaultConfig } from './configs';
+} from '../screens/constants'
+import { defaultConfig } from './configs'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const AppStack = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Stack.Navigator
       initialRouteName={OBSERVATIONS_SCREEN}
-      animation="fade"
-      headerMode="screen"
+      animation='fade'
+      headerMode='screen'
       screenOptions={{
         ...defaultConfig,
         header: ({ scene, previous, navigation }) => (
@@ -96,7 +96,7 @@ const AppStack = () => {
         }}
       />
     </Stack.Navigator>
-  );
-};
+  )
+}
 
-export default AppStack;
+export default AppStack

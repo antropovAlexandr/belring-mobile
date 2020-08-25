@@ -1,4 +1,4 @@
-import { colors, fonts } from 'Src/consts';
+import { colors, fonts } from 'Src/consts'
 
 export default {
   headerStyle: {
@@ -12,4 +12,4 @@ export default {
     color: colors.white,
   },
   headerTintColor: colors.white,
-};
+}

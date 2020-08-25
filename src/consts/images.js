@@ -12,4 +12,4 @@ export const images = {
     icEyeShow: require('../assets/images/login/ic_eye_show/ic_eye_show.png'),
   },
   arrow: require('../assets/images/arrow.png'),
-};
+}

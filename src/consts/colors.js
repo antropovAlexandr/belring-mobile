@@ -21,4 +21,4 @@ export const colors = {
   blueLight: '#abc1d1',
   blueMedium: '#1D455E',
   blueMediumSecond: '#305E80',
-};
+}

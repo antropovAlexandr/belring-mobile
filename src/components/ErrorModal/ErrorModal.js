@@ -1,29 +1,31 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import { Dialog, Paragraph, Text, Button, Portal } from 'react-native-paper';
-import { useSelector } from 'react-redux';
-import styles from './styles';
-import { appErrorSelector } from '../../store/selector';
+import React, { useState, useCallback, useEffect, useMemo } from 'react'
+import { Dialog, Paragraph, Text, Button, Portal } from 'react-native-paper'
+import { useSelector } from 'react-redux'
+import styles from './styles'
+import { appErrorSelector } from '../../store/selector'
 
-let currentErrorId = null;
+let currentErrorId = null
 
 const ErrorModal = () => {
-  const error = useSelector(appErrorSelector);
-  const [visible, setVisible] = useState(false);
+  const error = useSelector(appErrorSelector)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    setVisible(error?.id !== currentErrorId);
-  }, [error]);
+    setVisible(error?.id !== currentErrorId)
+  }, [error])
 
   const onPressOk = useCallback(() => {
-    currentErrorId = error?.id;
-    setVisible(false);
-  }, []);
+    currentErrorId = error?.id
+    setVisible(false)
+  }, [])
 
-  if (!error || !error.message) return null;
-  const { message, code } = error;
+  if (!error || !error.message) return null
+  const { message, code } = error
 
-  const errorMessage = useMemo(() => t(`backendError.${code}`) !== `backendError.${code}` ? t(`backendError.${code}`) : message, [code, message])
-
+  const errorMessage = useMemo(
+    () => (t(`backendError.${code}`) !== `backendError.${code}` ? t(`backendError.${code}`) : message),
+    [code, message]
+  )
 
   return (
     <Portal>
@@ -35,13 +37,13 @@ const ErrorModal = () => {
           </Paragraph>
         </Dialog.Content>
         <Dialog.Actions>
-          <Button mode="text" onPress={onPressOk}>
+          <Button mode='text' onPress={onPressOk}>
             {t('button.OK')}
           </Button>
         </Dialog.Actions>
       </Dialog>
     </Portal>
-  );
-};
+  )
+}
 
-export default ErrorModal;
+export default ErrorModal

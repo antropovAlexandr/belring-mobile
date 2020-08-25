@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { colors, fonts } from 'Consts';
+import { colors, fonts } from 'Consts'
 
 export default StyleSheet.create({
   scrollContainer: {
@@ -40,4 +40,4 @@ export default StyleSheet.create({
     marginTop: 15,
     paddingVertical: 1,
   },
-});
+})

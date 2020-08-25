@@ -1,5 +1,3 @@
-export const placesLoadingSelector = state => state.places.loading;
+export const placesLoadingSelector = (state) => state.places.loading
 
-export const placesSelector = state => state.places.items;
-
-
+export const placesSelector = (state) => state.places.items

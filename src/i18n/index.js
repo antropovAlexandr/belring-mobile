@@ -1,40 +1,40 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import { AsyncStorage } from 'react-native';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import { AsyncStorage } from 'react-native'
 
-import en from './en.json';
-import ru from './ru.json';
+import en from './en.json'
+import ru from './ru.json'
 
-const APP_LANGUAGE = 'appLanguage';
+const APP_LANGUAGE = 'appLanguage'
 
 export const LANG_TYPES = {
   EN: 'eng',
   RU: 'rus',
-};
+}
 
-export const getLanguage = () => i18n.language;
+export const getLanguage = () => i18n.language
 
-export const setLanguage = language => {
-  console.log('setLanguage');
-  i18n.changeLanguage(language);
-};
+export const setLanguage = (language) => {
+  console.log('setLanguage')
+  i18n.changeLanguage(language)
+}
 
 const languageDetector = {
   init: Function.prototype,
   type: 'languageDetector',
   async: true, // flags below detection to be async
-  detect: async callback => {
-    const savedDataJSON = await AsyncStorage.getItem(APP_LANGUAGE);
-    const lng = savedDataJSON ? JSON.parse(savedDataJSON) : null;
-    const selectLanguage = lng || LANG_TYPES.EN;
-    console.log('detect - selectLanguage:', selectLanguage);
-    callback(selectLanguage);
+  detect: async (callback) => {
+    const savedDataJSON = await AsyncStorage.getItem(APP_LANGUAGE)
+    const lng = savedDataJSON ? JSON.parse(savedDataJSON) : null
+    const selectLanguage = lng || LANG_TYPES.EN
+    console.log('detect - selectLanguage:', selectLanguage)
+    callback(selectLanguage)
   },
-  cacheUserLanguage: lang => {
-    console.log('cacheUserLanguage:', lang);
-    AsyncStorage.setItem(APP_LANGUAGE, lang);
+  cacheUserLanguage: (lang) => {
+    console.log('cacheUserLanguage:', lang)
+    AsyncStorage.setItem(APP_LANGUAGE, lang)
   },
-};
+}
 
 i18n
   .use(initReactI18next)
@@ -50,6 +50,6 @@ i18n
     react: {
       wait: true,
     },
-  });
+  })
 
-export default i18n;
+export default i18n
