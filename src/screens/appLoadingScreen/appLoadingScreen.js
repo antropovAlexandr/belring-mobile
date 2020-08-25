@@ -6,7 +6,9 @@ import { userTokenSelector, userFirstEntrySelector } from '../../selectors/userS
 
 const getRoutName = (token, isFirstEntry) => {
   if (token) return APP_STACK;
-  return (isFirstEntry) ? INTRODUCTION_STACK : LOGIN_STACK;
+  // TODO TEST!!!!!
+  // return (isFirstEntry) ? INTRODUCTION_STACK : LOGIN_STACK;
+  return APP_STACK;
 };
 
 const AppLoadingScreen = (props) => {

@@ -3,6 +3,7 @@ import {navigate, reset, goBack} from './navigationSaga'
 import usersSagasWithClient from './userSagas';
 import placesSagasWithClient from './placesSagas';
 import initialDataSagasWithClient from './initialDataSagas';
+import observationSagasWithClient from './observationSagas';
 
 import {NavigationTypes} from '../reducers/navigatorReducer'
 
@@ -16,5 +17,6 @@ export default function* root() {
         usersSagasWithClient(api).watchActions(),
         placesSagasWithClient(api).watchActions(),
         initialDataSagasWithClient(api).watchActions(),
+        observationSagasWithClient(api).watchActions(),
     ])
 }

@@ -4,7 +4,7 @@ import {
     AUTH_LOGIN_ENDPOINT,
     AUTH_REGISTRATION_ENDPOINT,
     AUTH_RESET_PASSWORD_ENDPOINT,
-    GET_PLACES_ENDPOINT, INITIAL_DATA_ENDPOINT
+    GET_PLACES_ENDPOINT, INITIAL_DATA_ENDPOINT, OBSERVATIONS_ENDPOINT
 } from "./constants";
 import httpErrorAdapter, { checkErrorInResponse } from "./httpErrorAdapter";
 
@@ -19,7 +19,7 @@ const client = apisauce.create({
 export const logIn = ({ email, password }) => {
     return client
         .post(AUTH_LOGIN_ENDPOINT, { email, password })
-        .then((response) => checkErrorInResponse(response))
+        .then(checkErrorInResponse)
         .catch(error => {
             throw httpErrorAdapter(error);
         })
@@ -35,7 +35,7 @@ export const registration = ({ email, password, firstName, lastName, phone }) =>
             lastName,
             phone,
         })
-        .then((response) => checkErrorInResponse(response))
+        .then(checkErrorInResponse)
         .catch(error => {
             throw httpErrorAdapter(error);
         })
@@ -46,7 +46,7 @@ export const resetPassword = ({ email }) => {
         .post(AUTH_RESET_PASSWORD_ENDPOINT, {
             email,
         })
-        .then((response) => checkErrorInResponse(response))
+        .then(checkErrorInResponse)
         .catch(error => {
             throw httpErrorAdapter(error);
         })
@@ -55,7 +55,7 @@ export const resetPassword = ({ email }) => {
 export const getPlaces = () => {
     return client
         .get(GET_PLACES_ENDPOINT)
-        .then((response) => checkErrorInResponse(response))
+        .then(checkErrorInResponse)
         .catch(error => {
             throw httpErrorAdapter(error);
         })
@@ -64,7 +64,16 @@ export const getPlaces = () => {
 export const getInitialData = ({ lang, token }) => {
     return client
         .get(INITIAL_DATA_ENDPOINT, token, {  params: { lang }, headers: { Authorization: token } })
-        .then((response) => checkErrorInResponse(response))
+        .then(checkErrorInResponse)
+        .catch(error => {
+            throw httpErrorAdapter(error);
+        })
+};
+
+export const createObservation = ({ token, data }) => {
+    return client
+        .post(OBSERVATIONS_ENDPOINT, token, data )
+        .then(checkErrorInResponse)
         .catch(error => {
             throw httpErrorAdapter(error);
         })

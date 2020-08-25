@@ -11,7 +11,7 @@ import { NavigationActions } from "../../redux/reducers/navigatorReducer";
 
 const RegistrationScreen = () => {
     const dispatch = useDispatch();
-    const error = useSelector(state => userErrorSelector(state));
+    const error = useSelector(userErrorSelector);
     const { t } = useTranslation();
 
     const validation = (values) => {
