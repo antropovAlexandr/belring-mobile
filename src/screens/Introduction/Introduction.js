@@ -11,7 +11,7 @@ import {styles, hitSlop} from './styles';
 
 const MAX_COUNT_SLIDER_ITEMS = 4;
 
-const Introduction = ({ navigation }) => {
+const Introduction = () => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
 

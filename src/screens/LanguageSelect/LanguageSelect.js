@@ -10,10 +10,10 @@ import {styles} from './styles';
 const LanguageSelect = ({ navigation }) => {
     const {t} = useTranslation();
 
-    const onChangeLanguage = (languge) => {
+    const onChangeLanguage = useCallback((language) => {
         navigation.navigate(INTRODUCTION_SCREEN);
-        i18n.changeLanguage(languge);
-    };
+        i18n.changeLanguage(language);
+    }, [])
 
     return (
         <View style={styles.container}>

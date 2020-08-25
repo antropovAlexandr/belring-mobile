@@ -53,8 +53,8 @@ const TagInformationStep = ({ values, setShowFooter, form }) => {
                         </View>
                         <FieldArray name={RINGS}>
                             {({fields}) => {
-                                const addNewRings = useCallback(() => fields.push(undefined), []);
-                                const onRemoveUser = useCallback(index => fields.remove(index), []);
+                                const addNewRings = useCallback(() => fields.push(undefined), [fields]);
+                                const onRemoveUser = useCallback(index => fields.remove(index), [fields]);
                                 return (
                                     <>
                                         {fields.map((name, index) => {

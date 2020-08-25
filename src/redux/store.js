@@ -8,7 +8,7 @@ import { persistStore, persistReducer, createTransform } from 'redux-persist';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const SetTransform = createTransform(
+const setTransform = createTransform(
     (inboundState, keyState) => {
       if (inboundState.error) return { ...inboundState, error: null};
       return { ...inboundState };
@@ -18,7 +18,7 @@ const SetTransform = createTransform(
 const persistConfig = {
   key: 'root',
   storage,
-  transforms: [SetTransform]
+  transforms: [setTransform]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

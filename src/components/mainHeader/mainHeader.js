@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Text } from 'react-native'
 import {UserActions} from '../../redux/reducers/userReducer'
 
-const MainHeader = ({ navigation }) => {
+const MainHeader = () => {
   const dispatch = useDispatch();
   const logout = useCallback(() => {
     dispatch(UserActions.logout())
