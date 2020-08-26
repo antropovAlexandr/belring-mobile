@@ -1,24 +1,8 @@
 import { FIELD_NAME } from './constants'
 
-const {
-  PHOTOS,
-  RINGS,
-  TAG_NUMBER,
-  TAG_TYPE,
-  TYPE_OF_BIRD,
-  BIRD_SEX,
-  BIRD_AGE,
-  BIRD_WAS,
-  BIRD_STATUS,
-  LOCATION_CONDITION,
-  PLACE,
-  COORDINATE_ACCURACY,
-  DATE,
-  DATE_ACCURACY,
-} = FIELD_NAME
+const { PHOTOS, RINGS, TAG_NUMBER, TAG_TYPE, TYPE_OF_BIRD, BIRD_SEX, BIRD_AGE, PLACE, DATE, DATE_ACCURACY } = FIELD_NAME
 
 const getObservationPhotosAdapter = (photos) => {
-  console.log('photos', photos)
   if (!photos || photos.length) return null
   return photos.map((photo) => {
     if (photo && photo.uri) return photo.uri

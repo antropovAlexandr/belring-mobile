@@ -28,6 +28,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     transform: [{ scale: 0.6 }],
   },
+  mapbox: {
+    flex: 1,
+  },
 })
 
 export default styles

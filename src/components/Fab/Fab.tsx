@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { FAB } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
+
 import { ADD_OBSERVATION, ADD_PLACE } from '../../screens/constants'
 
 const getActionsByNavigation = (navigation, translate) => [

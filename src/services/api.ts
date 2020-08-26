@@ -13,7 +13,7 @@ import {
 } from './constants'
 import { getUserResponseAdapter } from './responseAdapters'
 
-export const refreshToken = ({ refreshToken }) =>
+export const postRefreshToken = ({ refreshToken }) =>
   client.post(AUTH_REFRESH_ENDPOINT, { refreshToken }).then((response) => response.data)
 
 export const logIn = ({ email, password }) =>

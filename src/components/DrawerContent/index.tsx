@@ -44,7 +44,7 @@ export function DrawerContent({ progress, navigation }) {
       <Animated.View style={[styles.drawerContent, { transform: [{ translateX }] }]}>
         <View style={styles.userInfoSection}>
           <TouchableOpacity onPress={hideDrawer}>
-            <Image style={{ width: 150 }} resizeMode='contain' source={logoImg} />
+            <Image style={styles.logo} resizeMode='contain' source={logoImg} />
           </TouchableOpacity>
           <Title style={styles.title}>
             {firstName} {lastName}

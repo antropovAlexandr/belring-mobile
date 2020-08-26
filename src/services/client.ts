@@ -5,7 +5,7 @@ import { updateTokenRequest } from '../screens/Login/reducer'
 import { userRefreshTokenSelector, userTokenSelector } from '../screens/Login/selector'
 
 import { BASE_URL } from './constants'
-import { refreshToken } from './api'
+import { postRefreshToken } from './api'
 import httpErrorAdapter from './httpErrorAdapter'
 
 const client = Axios.create({
@@ -43,8 +43,8 @@ client.interceptors.response.use(null, (error) => {
     if (!isAlreadyFetchingAccessToken) {
       isAlreadyFetchingAccessToken = true
       const state = store.getState()
-      const token = userRefreshTokenSelector(state)
-      refreshToken({ refreshToken: token }).then(({ token, refreshToken }) => {
+      const userRefreshToken = userRefreshTokenSelector(state)
+      postRefreshToken({ refreshToken: userRefreshToken }).then(({ token, refreshToken }) => {
         store.dispatch(updateTokenRequest(token, refreshToken))
         isAlreadyFetchingAccessToken = false
         onAccessTokenFetched(token)

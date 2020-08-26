@@ -14,6 +14,15 @@ const ErrorModal = () => {
   const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
 
+  const errorMessage = useMemo(() => {
+    if (!error || !error.message) {
+      return null
+    }
+    return t(`backendError.${error.code}`) !== `backendError.${error.code}`
+      ? t(`backendError.${error.code}`)
+      : error.message
+  }, [error])
+
   useEffect(() => {
     setVisible(error?.id !== currentErrorId)
   }, [error])
@@ -24,17 +33,11 @@ const ErrorModal = () => {
   }, [])
 
   if (!error || !error.message) return null
-  const { message, code } = error
-
-  const errorMessage = useMemo(
-    () => (t(`backendError.${code}`) !== `backendError.${code}` ? t(`backendError.${code}`) : message),
-    [code, message]
-  )
 
   return (
     <Portal>
       <Dialog visible={visible} dismissable={false}>
-        <Dialog.Title>{`${t('backendError.errorTitle')}: ${code}`}</Dialog.Title>
+        <Dialog.Title>{`${t('backendError.errorTitle')}: ${error.code}`}</Dialog.Title>
         <Dialog.Content>
           <Paragraph>
             <Text style={styles.message}>{errorMessage}</Text>

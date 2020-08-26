@@ -1,4 +1,4 @@
-import { put, call, takeLatest, delay } from 'redux-saga/effects'
+import { put, call, takeLatest } from 'redux-saga/effects'
 
 import {
   addObservationRequest,
@@ -23,7 +23,7 @@ function sagasWithClient(client) {
   function* createObservation({ observation, successAction }) {
     try {
       // yield delay(4000);
-      const data = yield call(client.createObservation, { observation })
+      yield call(client.createObservation, { observation })
       yield put(addObservationSuccess())
       yield call(successAction)
     } catch (e) {

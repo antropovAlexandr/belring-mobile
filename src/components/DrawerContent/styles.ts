@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 20,
   },
+  logo: { width: 150 },
   caption: {
     fontSize: 14,
     lineHeight: 14,

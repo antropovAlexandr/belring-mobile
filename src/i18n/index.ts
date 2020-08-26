@@ -1,6 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import en from './en.json'
 import ru from './ru.json'
@@ -15,7 +15,6 @@ export const LANG_TYPES = {
 export const getLanguage = () => i18n.language
 
 export const setLanguage = (language) => {
-  console.log('setLanguage')
   i18n.changeLanguage(language)
 }
 
@@ -27,11 +26,9 @@ const languageDetector = {
     const savedDataJSON = await AsyncStorage.getItem(APP_LANGUAGE)
     const lng = savedDataJSON ? JSON.parse(savedDataJSON) : null
     const selectLanguage = lng || LANG_TYPES.EN
-    console.log('detect - selectLanguage:', selectLanguage)
     callback(selectLanguage)
   },
   cacheUserLanguage: (lang) => {
-    console.log('cacheUserLanguage:', lang)
     AsyncStorage.setItem(APP_LANGUAGE, lang)
   },
 }

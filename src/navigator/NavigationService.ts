@@ -6,7 +6,6 @@ function setRef(navigatorRef) {
 }
 
 function navigate(name, params) {
-  // eslint-disable-next-line no-unused-expressions
   navigationRef?.current?.navigate(name, params)
 }
 

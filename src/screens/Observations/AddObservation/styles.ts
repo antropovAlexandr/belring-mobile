@@ -73,4 +73,7 @@ export default StyleSheet.create({
   mobileAppText: {
     color: colors.greenLight,
   },
+  dateField: {
+    backgroundColor: 'transparent',
+  },
 })

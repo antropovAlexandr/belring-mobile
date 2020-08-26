@@ -8,7 +8,7 @@ import sagas from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const SetTransform = createTransform((inboundState, keyState) => {
+const SetTransform = createTransform((inboundState) => {
   if (inboundState.error) return { ...inboundState, error: null }
   return { ...inboundState }
 })

@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-import { blue } from '../../consts/colors'
+import { colors } from '../../consts'
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   scrollContainer: {
     width: '100%',
     paddingLeft: 20,
@@ -13,7 +16,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     lineHeight: 30,
-    color: blue,
+    color: colors.blue,
     fontFamily: 'Lato',
     paddingBottom: 7,
   },

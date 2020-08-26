@@ -18,7 +18,7 @@ import {
   updateUserPersonalDataSuccess,
   userFailure,
 } from './reducer'
-import { userRefreshTokenSelector, userIdSelector } from './selector'
+import { userIdSelector } from './selector'
 
 function sagasWithClient(client) {
   function* updateEmail({ payload }) {
