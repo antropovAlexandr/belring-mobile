@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native'
 
-import { colors, fonts } from 'Consts';
+import { colors, fonts } from 'Consts'
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     borderWidth: 1,
   },
-});
+})
 
-export default styles;
+export default styles

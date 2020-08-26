@@ -1,3 +1,3 @@
-import Fab from './Fab';
+import Fab from './Fab'
 
-export default Fab;
+export default Fab

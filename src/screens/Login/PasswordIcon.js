@@ -1,8 +1,8 @@
-import React from 'react';
-import { TouchableOpacity, Image } from 'react-native';
+import React from 'react'
+import { TouchableOpacity, Image } from 'react-native'
 
-import { images } from 'Consts';
-import styles, { hitSlop } from './styles';
+import { images } from 'Consts'
+import styles, { hitSlop } from './styles'
 
 export default function PasswordIcon({ secureTextEntry, handleShowHidePassword }) {
   return (
@@ -12,10 +12,7 @@ export default function PasswordIcon({ secureTextEntry, handleShowHidePassword }
       hitSlop={hitSlop}
       activeOpacity={0.8}
     >
-      <Image
-        style={styles.inputIcon}
-        source={secureTextEntry ? images.login.icEyeShow : images.login.icEyeHide}
-      />
+      <Image style={styles.inputIcon} source={secureTextEntry ? images.login.icEyeShow : images.login.icEyeHide} />
     </TouchableOpacity>
-  );
+  )
 }

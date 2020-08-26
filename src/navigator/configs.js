@@ -1,6 +1,6 @@
-import { CardStyleInterpolators } from '@react-navigation/stack';
+import { CardStyleInterpolators } from '@react-navigation/stack'
 
-import { colors } from 'Consts';
+import { colors } from 'Consts'
 
 export const defaultConfig = {
   gestureEnabled: true,
@@ -10,4 +10,4 @@ export const defaultConfig = {
   cardStyle: {
     backgroundColor: colors.white,
   },
-};
+}

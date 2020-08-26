@@ -1,4 +1,4 @@
-const font = (fontFamily, fontWeight) => ({ fontFamily, fontWeight });
+const font = (fontFamily, fontWeight) => ({ fontFamily, fontWeight })
 
 export const fonts = {
   DEFAULT_NORMAL: font('sans-serif', 'normal'),
@@ -12,4 +12,4 @@ export const fonts = {
   LATO_MEDIUM: font('Lato-Medium', 'normal'),
   LATO_SEMIBOLD: font('Lato-Semibold', 'normal'),
   LATO_BOLD: font('Lato-Bold', 'normal'),
-};
+}

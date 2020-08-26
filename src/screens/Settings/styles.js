@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { black087, black06 } from '../../consts/colors';
+import { StyleSheet } from 'react-native'
+import { black087, black06 } from '../../consts/colors'
 
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -43,11 +43,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginTop: 15,
     flex: 1,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
   },
   buttonStyle: {
     width: 150,
   },
-});
+})
 
-export default styles;
+export default styles

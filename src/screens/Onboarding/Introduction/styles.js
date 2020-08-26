@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors, fonts } from 'Consts';
+import { StyleSheet } from 'react-native'
+import { colors, fonts } from 'Consts'
 
 const styles = StyleSheet.create({
   container: {
@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     backgroundColor: colors.blue,
   },
-});
+})
 
-const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 };
+const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 }
 
-export { styles, hitSlop };
+export { styles, hitSlop }

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { colors } from 'Consts';
+import { StyleSheet } from 'react-native'
+import { colors } from 'Consts'
 
 export default StyleSheet.create({
   container: {
@@ -52,6 +52,6 @@ export default StyleSheet.create({
   pagination: {
     bottom: 20,
   },
-});
+})
 
-export const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 };
+export const hitSlop = { top: 10, bottom: 10, right: 10, left: 10 }

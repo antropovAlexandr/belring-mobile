@@ -14,4 +14,4 @@ export const FIELD_NAME = {
   COORDINATE_ACCURACY: 'AddObservation/coordinateAccuracy',
   DATE: 'AddObservation/date',
   DATE_ACCURACY: 'AddObservation/dateAccuracy',
-};
+}

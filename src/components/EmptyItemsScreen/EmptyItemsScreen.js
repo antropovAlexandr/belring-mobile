@@ -1,13 +1,13 @@
-import React from 'react';
-import { Image, Text, View } from 'react-native';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { Image, Text, View } from 'react-native'
+import { useTranslation } from 'react-i18next'
 
-import styles from './styles';
-import Fab from '../Fab';
-import { images } from 'Consts/images';
+import styles from './styles'
+import Fab from '../Fab'
+import { images } from 'Consts/images'
 
 const EmptyItemsScreen = ({ title, description, navigation }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <View style={styles.container}>
@@ -20,7 +20,7 @@ const EmptyItemsScreen = ({ title, description, navigation }) => {
       </View>
       <Fab navigation={navigation} />
     </View>
-  );
-};
+  )
+}
 
-export default EmptyItemsScreen;
+export default EmptyItemsScreen

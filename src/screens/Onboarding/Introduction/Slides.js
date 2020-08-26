@@ -1,13 +1,13 @@
-import React, { Fragment, RefObject } from 'react';
-import Swiper from 'react-native-swiper';
-import { useTranslation } from 'react-i18next';
+import React, { Fragment, RefObject } from 'react'
+import Swiper from 'react-native-swiper'
+import { useTranslation } from 'react-i18next'
 
-import SlideView from './SlideView';
-import { images } from 'Consts/images';
-import { styles } from './styles';
+import SlideView from './SlideView'
+import { images } from 'Consts/images'
+import { styles } from './styles'
 
 const Slides = ({ sliderRef, onSliderChanged }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const slides = [
     {
       id: 'Slides/historyScreen',
@@ -33,7 +33,7 @@ const Slides = ({ sliderRef, onSliderChanged }) => {
       title: t('introduction.tagsScreenTitle'),
       description: t('introduction.tagsScreenText'),
     },
-  ];
+  ]
 
   return (
     <Swiper
@@ -45,13 +45,13 @@ const Slides = ({ sliderRef, onSliderChanged }) => {
       activeDotStyle={[styles.dot, styles.backgroundActive]}
       onIndexChanged={onSliderChanged}
     >
-      {slides.map(slide => (
+      {slides.map((slide) => (
         <Fragment key={slide.id}>
           <SlideView image={slide.image} title={slide.title} description={slide.description} />
         </Fragment>
       ))}
     </Swiper>
-  );
-};
+  )
+}
 
-export default Slides;
+export default Slides

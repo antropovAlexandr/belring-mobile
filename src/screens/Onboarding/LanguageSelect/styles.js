@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
-import { colors } from 'Consts';
+import { colors } from 'Consts'
 
 const styles = StyleSheet.create({
   buttonsContainer: {
@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: colors.grayMedium,
   },
-});
+})
 
-export { styles };
+export { styles }

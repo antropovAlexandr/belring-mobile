@@ -1,1 +1,1 @@
-export { default } from './RegistrationNotification';
+export { default } from './RegistrationNotification'

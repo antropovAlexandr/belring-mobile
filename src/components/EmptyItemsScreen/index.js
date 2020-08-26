@@ -1,1 +1,1 @@
-export { default }  from "./EmptyItemsScreen";
+export { default } from './EmptyItemsScreen'

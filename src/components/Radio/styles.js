@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   container: {
@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
     letterSpacing: 0.15,
     lineHeight: 24,
   },
-});
+})
 
-export default styles;
+export default styles
