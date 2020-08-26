@@ -6,15 +6,17 @@ import Animated from 'react-native-reanimated'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+
 import { getUserRoleNameByType } from '../../screens/Login/utils'
 import { blue } from '../../consts/colors'
-
-import styles from './styles'
 import { ABOUT_APP_SCREEN, OBSERVATIONS_SCREEN, PLACES, SETTINGS_SCREEN } from '../../screens/constants'
 import { logoutUserRequest } from '../../screens/Login/reducer'
 import { userFirstNameSelector, userLastNameSelector, userRoleSelector } from '../../screens/Login/selector'
 
+import styles from './styles'
+
 const logoImg = require('../../assets/images/logo/logo.png')
+
 const ICON_SIZE = 26
 
 export function DrawerContent({ progress, navigation }) {

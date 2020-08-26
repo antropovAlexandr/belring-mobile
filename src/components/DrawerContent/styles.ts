@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { blue } from '../../consts/colors'
+
+import { colors } from '../../consts'
 
 const styles = StyleSheet.create({
   drawerContent: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   drawerItem: {
-    color: blue,
+    color: colors.blue,
     fontFamily: 'Roboto',
     fontSize: 14,
     letterSpacing: 0.25,

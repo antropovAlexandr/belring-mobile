@@ -1,5 +1,6 @@
-import { EMAIL_FIELD_NAME, PASSWORD_FIELD_NAME, PERSONAL_DATA_FIELD_NAME } from './constants'
 import { checkEmailIsValid, checkPasswordIsValid } from '../../helper/validation'
+
+import { EMAIL_FIELD_NAME, PASSWORD_FIELD_NAME, PERSONAL_DATA_FIELD_NAME } from './constants'
 
 const { EMAIL, PASSWORD } = EMAIL_FIELD_NAME
 const { OLD_PASSWORD, NEW_PASSWORD } = PASSWORD_FIELD_NAME

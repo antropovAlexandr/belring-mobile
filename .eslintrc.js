@@ -5,8 +5,9 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'import',
-//    'eslint-plugin-tsdoc',
-    'eslint-plugin-prefer-arrow'],
+    //'eslint-plugin-tsdoc',
+    'eslint-plugin-prefer-arrow',
+  ],
   rules: {
     'prefer-arrow/prefer-arrow-functions': [
       'error',
@@ -31,6 +32,6 @@ module.exports = {
     'import/no-absolute-path': 2,
     'import/no-useless-path-segments': 2,
     'import/newline-after-import': 2,
-//    'tsdoc/syntax': 'warn',
+    //'tsdoc/syntax': 'warn',
   },
 }

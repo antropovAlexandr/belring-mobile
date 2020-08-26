@@ -1,4 +1,8 @@
 import { put, call, takeLatest, select, takeLeading } from 'redux-saga/effects'
+
+import { navigate } from '../../navigator'
+import { REGISTRATION_NOTIFICATION_SCREEN } from '../constants'
+
 import {
   loginUserRequest,
   loginUserSuccess,
@@ -14,8 +18,6 @@ import {
   updateUserPersonalDataSuccess,
   userFailure,
 } from './reducer'
-import { navigate } from '../../navigator'
-import { REGISTRATION_NOTIFICATION_SCREEN } from '../constants'
 import { userRefreshTokenSelector, userIdSelector } from './selector'
 
 function sagasWithClient(client) {

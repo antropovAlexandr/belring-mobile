@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+
 import { blue } from '../../consts/colors'
 
 const styles = StyleSheet.create({

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+
 import { black087, black06 } from '../../consts/colors'
 
 const styles = StyleSheet.create({

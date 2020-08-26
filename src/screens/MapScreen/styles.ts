@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+
 import { firebrick } from '../../consts/colors'
 
 const styles = StyleSheet.create({

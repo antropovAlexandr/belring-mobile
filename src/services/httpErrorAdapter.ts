@@ -7,9 +7,11 @@ export const DEFAULT_API_ERROR_MESSAGE = 'Internal server error'
 export const NO_SERVER_RESPONSE_CODE = 111
 export const NETWORK_ERROR_CODE = 112
 
-export const setError = (code: number = DEFAULT_API_ERROR_CODE, message: string = DEFAULT_API_ERROR_MESSAGE) => {
-  return { code, message, id: new Date().getTime() }
-}
+export const setError = (code: number = DEFAULT_API_ERROR_CODE, message: string = DEFAULT_API_ERROR_MESSAGE) => ({
+  code,
+  message,
+  id: new Date().getTime(),
+})
 
 const httpErrorAdapter = (error) => {
   if (error?.response?.data?.error) {

@@ -1,5 +1,4 @@
 import { CardStyleInterpolators } from '@react-navigation/stack'
-
 import { colors } from 'Consts'
 
 export const defaultConfig = {

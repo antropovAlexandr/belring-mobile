@@ -1,4 +1,5 @@
 import Geolocation from '@react-native-community/geolocation'
+
 import { LOCATION_ITEMS, FIELD_NAME } from './constants'
 
 const { LOCATION_NAME, LOCATION_COORDINATE } = FIELD_NAME

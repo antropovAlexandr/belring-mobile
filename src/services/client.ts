@@ -1,10 +1,12 @@
 import Axios from 'axios'
-import { BASE_URL } from './constants'
+
 import { store } from '../store'
-import { refreshToken } from './api'
-import httpErrorAdapter from './httpErrorAdapter'
 import { updateTokenRequest } from '../screens/Login/reducer'
 import { userRefreshTokenSelector, userTokenSelector } from '../screens/Login/selector'
+
+import { BASE_URL } from './constants'
+import { refreshToken } from './api'
+import httpErrorAdapter from './httpErrorAdapter'
 
 const client = Axios.create({
   baseURL: BASE_URL,
@@ -18,7 +20,7 @@ client.interceptors.request.use(
   (config) => {
     const state = store.getState()
     const token = userTokenSelector(state)
-    if (token) config.headers['Authorization'] = token
+    if (token) config.headers.Authorization = token
     return config
   },
   (error) => Promise.reject(error)
@@ -50,7 +52,7 @@ client.interceptors.response.use(null, (error) => {
     }
     return new Promise((resolve) => {
       addSubscriber((token) => {
-        originalRequest.headers['Authorization'] = token
+        originalRequest.headers.Authorization = token
         resolve(client(originalRequest))
       })
     })

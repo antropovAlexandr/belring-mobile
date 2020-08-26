@@ -1,10 +1,11 @@
 import React from 'react'
 import { Image, Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
+import { images } from 'Consts/images'
+
+import Fab from '../Fab'
 
 import styles from './styles'
-import Fab from '../Fab'
-import { images } from 'Consts/images'
 
 const EmptyItemsScreen = ({ title, description, navigation }) => {
   const { t } = useTranslation()

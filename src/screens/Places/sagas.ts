@@ -1,4 +1,9 @@
 import { put, call, takeLatest, select } from 'redux-saga/effects'
+
+import { navigate } from '../../navigator'
+import { PLACES } from '../../screens/constants'
+import { userIdSelector } from '../Login/selector'
+
 import {
   loadUserPlacesRequest,
   loadUserPlacesSuccess,
@@ -6,9 +11,6 @@ import {
   updateUserPlacesSuccess,
   userPlacesFailure,
 } from './reducer'
-import { navigate } from '../../navigator'
-import { PLACES } from '../../screens/constants'
-import { userIdSelector } from '../Login/selector'
 
 function sagasWithClient(client) {
   function* loadUserPlaces({ payload }) {
