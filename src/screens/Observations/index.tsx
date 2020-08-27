@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
+import React, { useCallback, memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFocusEffect } from '@react-navigation/native'
 import { Text } from 'react-native-paper'
@@ -8,7 +9,7 @@ import EmptyItemsScreen from '../../components/EmptyItemsScreen'
 import { loadObservationsRequest } from './reducer'
 import { observationLoadingSelector, observationsSelector } from './selector'
 
-const Observations = ({ navigation }) => {
+export default memo(({ navigation }: Props) => {
   const dispatch = useDispatch()
 
   const loading = useSelector(observationLoadingSelector)
@@ -32,6 +33,8 @@ const Observations = ({ navigation }) => {
 
   //TODO Add ObservationsList component
   return <Text>ObservationsList</Text>
-}
+})
 
-export default Observations
+interface Props {
+  navigation: StackNavigationProp<any>
+}

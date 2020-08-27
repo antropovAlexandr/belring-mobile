@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
+import React, { useCallback, memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { useTranslation } from 'react-i18next'
@@ -8,7 +9,7 @@ import { registrationUserRequest } from '../reducer'
 
 import RegistrationView from './RegistrationView'
 
-const Registration = ({ navigation }) => {
+export default memo(({ navigation }: Props) => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
@@ -37,6 +38,8 @@ const Registration = ({ navigation }) => {
       )}
     />
   )
-}
+})
 
-export default Registration
+interface Props {
+  navigation: StackNavigationProp<any>
+}

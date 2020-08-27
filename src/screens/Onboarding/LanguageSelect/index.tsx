@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, memo } from 'react'
 import { View } from 'react-native'
 import { Button } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
@@ -9,7 +9,7 @@ import { INTRODUCTION_SCREEN } from '../../constants'
 
 import { styles } from './styles'
 
-const LanguageSelect = ({ navigation }: { navigation: StackNavigationProp<any> }) => {
+export default memo(({ navigation }: Props) => {
   const { t } = useTranslation()
 
   const onChangeLanguage = useCallback(
@@ -30,6 +30,8 @@ const LanguageSelect = ({ navigation }: { navigation: StackNavigationProp<any> }
       </Button>
     </View>
   )
-}
+})
 
-export default LanguageSelect
+interface Props {
+  navigation: StackNavigationProp<any>
+}

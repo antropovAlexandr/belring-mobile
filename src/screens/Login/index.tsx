@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
+import React, { useCallback, memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +12,7 @@ import LoginView from './LoginView'
 import { loginUserRequest } from './reducer'
 import { EMAIL_INPUT_NAME, PASSWORD_INPUT_NAME } from './constants'
 
-const Login = ({ navigation }) => {
+export default memo(({ navigation }: Props) => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
@@ -54,6 +55,8 @@ const Login = ({ navigation }) => {
       )}
     />
   )
-}
+})
 
-export default Login
+interface Props {
+  navigation: StackNavigationProp<any>
+}

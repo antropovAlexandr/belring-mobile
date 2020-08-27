@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useFocusEffect } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
@@ -10,7 +10,7 @@ import PlacesList from './PlacesList'
 import { loadUserPlacesRequest } from './reducer'
 import { placesLoadingSelector, placesSelector } from './selector'
 
-const Places = ({ navigation }: { navigation: StackNavigationProp<any> }) => {
+export default memo(({ navigation }: Props) => {
   const dispatch = useDispatch()
   const loading = useSelector(placesLoadingSelector)
   const id = useSelector(userIdSelector)
@@ -27,6 +27,8 @@ const Places = ({ navigation }: { navigation: StackNavigationProp<any> }) => {
     return <EmptyItemsScreen title='places.titleEmpty' description='places.descriptionEmpty' navigation={navigation} />
 
   return <PlacesList places={places} navigation={navigation} />
-}
+})
 
-export default Places
+interface Props {
+  navigation: StackNavigationProp<any>
+}

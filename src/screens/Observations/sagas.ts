@@ -22,7 +22,6 @@ function sagasWithClient(client) {
 
   function* createObservation({ observation, successAction }) {
     try {
-      // yield delay(4000);
       yield call(client.createObservation, { observation })
       yield put(addObservationSuccess())
       yield call(successAction)

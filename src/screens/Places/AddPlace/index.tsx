@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo, memo } from 'react'
 import { Form } from 'react-final-form'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -9,9 +9,10 @@ import AddPlaceView from './AddPlaceView'
 import { locationValidation } from './validation'
 import { FIELD_NAME } from './constants'
 import { getPlacesForUpdate } from './utils'
+import { Props } from './types'
 
 const { LOCATION_NAME, LOCATION_COORDINATE } = FIELD_NAME
-const AddPlace = ({ navigation, route }) => {
+export default memo(({ navigation, route }: Props) => {
   const { params = {} } = route
   const { locationName, latitude, longitude, placeId } = params
 
@@ -51,6 +52,4 @@ const AddPlace = ({ navigation, route }) => {
       )}
     />
   )
-}
-
-export default AddPlace
+})

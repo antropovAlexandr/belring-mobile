@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
+import React, { useCallback, memo } from 'react'
 import { useDispatch } from 'react-redux'
 import { Form } from 'react-final-form'
 import { useTranslation } from 'react-i18next'
@@ -8,7 +9,7 @@ import { resetPasswordRequest } from '../reducer'
 
 import PasswordRecoveryView from './PasswordRecoveryView'
 
-const PasswordRecovery = ({ navigation }) => {
+export default memo(({ navigation }: Props) => {
   const dispatch = useDispatch()
   const { t } = useTranslation()
 
@@ -31,6 +32,8 @@ const PasswordRecovery = ({ navigation }) => {
       )}
     />
   )
-}
+})
 
-export default PasswordRecovery
+interface Props {
+  navigation: StackNavigationProp<any>
+}
