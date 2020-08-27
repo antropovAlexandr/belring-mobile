@@ -93,7 +93,7 @@ function sagasWithClient(client) {
     }
   }
 
-  function* watchActions(): Generator<*, *, *> {
+  function* watchActions(): Generator<any, any, any> {
     yield takeLatest(loginUserRequest, login)
     yield takeLatest(registrationUserRequest, registration)
     yield takeLatest(resetPasswordRequest, resetPassword)

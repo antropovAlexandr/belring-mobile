@@ -33,7 +33,7 @@ function sagasWithClient(client) {
     }
   }
 
-  function* watchActions(): Generator<*, *, *> {
+  function* watchActions(): Generator<any, any, any> {
     yield takeLatest(loadUserPlacesRequest, loadUserPlaces)
     yield takeLatest(updateUserPlacesRequest, saveUserPlace)
   }

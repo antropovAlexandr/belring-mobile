@@ -3,7 +3,8 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useTranslation } from 'react-i18next'
-import FormFieldWithTextInput from 'components/FormFieldWithTextInput'
+
+import FormFieldWithTextInput from '../../components/FormFieldWithTextInput'
 
 import PasswordIcon from './PasswordIcon'
 import { EMAIL_INPUT_NAME, PASSWORD_INPUT_NAME } from './constants'

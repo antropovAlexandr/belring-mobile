@@ -1,0 +1,25 @@
+# frozen_string_literal: true
+
+fastlane_version '2.138.0'
+skip_docs
+default_platform :android
+
+# ------------------------------------------------------------------------------------------------ #
+#                                                                                                  #
+#                                       Android lanes                                              #
+#                                                                                                  #
+# ------------------------------------------------------------------------------------------------ #
+
+platform :android do
+  desc 'Distributio Android app for testing'
+  lane :distribute do
+    gradle(
+      tasks: ["assembleRelease"],
+      project_dir: './android',
+    )
+    firebase_app_distribution(
+      app: '1:201639686445:android:b9f0afc5ba46e0ff02a3a4',
+      apk_path: './android/app/build/outputs/apk/release/app-release.apk'
+    )
+  end
+end
