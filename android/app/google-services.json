@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "201639686445",
+    "firebase_url": "https://belringmobile.firebaseio.com",
+    "project_id": "belringmobile",
+    "storage_bucket": "belringmobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201639686445:android:b9f0afc5ba46e0ff02a3a4",
+        "android_client_info": {
+          "package_name": "com.belringmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201639686445-7qdujtp3pkl8a2mvs979k6qkl5hooi6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNpGRIyHhUWEFUxB5GN27-E7OXhBZRIR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201639686445-7qdujtp3pkl8a2mvs979k6qkl5hooi6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
