@@ -23,7 +23,7 @@ export default StyleSheet.create({
   registrationStatusText: {
     marginVertical: 16,
     fontSize: 20,
-    fontFamily: 'sans-serif-medium',
+    // fontFamily: 'sans-serif-medium',
     lineHeight: 24,
     letterSpacing: 0.25,
     color: '#375867',
