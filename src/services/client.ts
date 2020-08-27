@@ -27,17 +27,17 @@ client.interceptors.request.use(
 )
 
 let isAlreadyFetchingAccessToken = false
-let subscribers = []
+let subscribers: Array<Function> = []
 
-function onAccessTokenFetched(access_token) {
+function onAccessTokenFetched(access_token: string) {
   subscribers = subscribers.filter((callback) => callback(access_token))
 }
 
-function addSubscriber(callback) {
+function addSubscriber(callback: (token: string) => void): void {
   subscribers.push(callback)
 }
 
-client.interceptors.response.use(null, (error) => {
+client.interceptors.response.use(undefined, (error) => {
   if (error.config && !error?.response?.data?.error && error?.response?.status === 401) {
     const originalRequest = error.config
     if (!isAlreadyFetchingAccessToken) {
@@ -51,7 +51,7 @@ client.interceptors.response.use(null, (error) => {
       })
     }
     return new Promise((resolve) => {
-      addSubscriber((token) => {
+      addSubscriber((token: string) => {
         originalRequest.headers.Authorization = token
         resolve(client(originalRequest))
       })

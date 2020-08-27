@@ -1,21 +1,28 @@
-import React, { useState, useCallback } from 'react'
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import React, { useState, useCallback, FunctionComponent } from 'react'
+import { Image, ScrollView, Text, TouchableOpacity, View, ImageSourcePropType } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useTranslation } from 'react-i18next'
-import FormFieldWithTextInput from 'components/FormFieldWithTextInput'
+import FormFieldWithTextInput from '../../components/FormFieldWithTextInput'
 
-import PasswordIcon from './PasswordIcon'
 import { EMAIL_INPUT_NAME, PASSWORD_INPUT_NAME } from './constants'
 import styles from './styles'
 
-const LoginView = ({ logoImg, onPressLogin, onPressRegistration, onPressResetPassword, navigateToAboutApp }) => {
+type LoginViewProps = {
+  logoImg: ImageSourcePropType;
+  onPressLogin: () => void;
+  onPressRegistration: () => void;
+  onPressResetPassword: () => void;
+  navigateToAboutApp: () => void;
+};
+
+const LoginView: FunctionComponent<LoginViewProps> = ({ logoImg, onPressLogin, onPressRegistration, onPressResetPassword, navigateToAboutApp }) => {
   const { t } = useTranslation()
 
   const [secureTextEntry, setSecureTextEntry] = useState(true)
 
   const handleShowHidePassword = useCallback(() => {
-    setSecureTextEntry(!secureTextEntry)
+    setSecureTextEntry(prev => !prev)
   }, [setSecureTextEntry])
 
   return (
@@ -32,19 +39,18 @@ const LoginView = ({ logoImg, onPressLogin, onPressRegistration, onPressResetPas
         </TouchableOpacity>
         <FormFieldWithTextInput
           name={EMAIL_INPUT_NAME}
-          component={TextInput}
           label={t('login.email')}
           mode='outlined'
         />
         <FormFieldWithTextInput
           name={PASSWORD_INPUT_NAME}
-          component={TextInput}
           label={t('login.password')}
           mode='outlined'
+          right={<TextInput.Icon
+              name={secureTextEntry ? 'eye' : 'eye-off'}
+              onPress={handleShowHidePassword}
+          />}
           secureTextEntry={secureTextEntry}
-          showIcon={true}
-          Icon={PasswordIcon}
-          handleShowHidePassword={handleShowHidePassword}
         />
         <Button mode='contained' style={styles.signInBtn} onPress={onPressLogin}>
           {t('login.sign-in')}

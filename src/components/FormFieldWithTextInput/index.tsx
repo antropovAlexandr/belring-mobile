@@ -1,16 +1,42 @@
-import React from 'react'
+import React, { ReactNode, FunctionComponent } from 'react'
 import { TextInput, HelperText } from 'react-native-paper'
 import { Field } from 'react-final-form'
-import { View } from 'react-native'
+import { View, StyleProp, ViewStyle, } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
-const FormFieldWithTextInput = ({ name, format, style, inputStyle, showIcon, Icon, ...inputProps }) => {
+type TextInputProps = React.ComponentProps<typeof TextInput>
+
+type FormFieldWithTextInputProps = Partial<TextInputProps> & {
+    name: string;
+    format?: () => void;
+    showIcon?: boolean;
+    Icon?: ReactNode;
+    style?: StyleProp<ViewStyle>;
+    inputStyle?: StyleProp<ViewStyle>;
+};
+
+const FormFieldWithTextInput: FunctionComponent<FormFieldWithTextInputProps> = ({
+    name,
+    format,
+    style,
+    inputStyle,
+    label,
+    mode,
+    right,
+    secureTextEntry
+}) => {
   const { t } = useTranslation()
+
+    const inputProps = {
+        label,
+        mode,
+        right,
+        secureTextEntry
+    };
 
   return (
     <Field
-      {...{ name }}
-      {...{ format }}
+      {...{ name, format }}
       render={({ input, meta }) => {
         const isError = !!meta.error && meta.touched
         return (
@@ -19,7 +45,6 @@ const FormFieldWithTextInput = ({ name, format, style, inputStyle, showIcon, Ico
             <HelperText type='error' visible={isError}>
               {t(meta.error)}
             </HelperText>
-            {showIcon && <Icon {...inputProps} />}
           </View>
         )
       }}
