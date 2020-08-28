@@ -1,3 +1,4 @@
+import { SagaIterator } from 'redux-saga';
 import { put, call, takeLatest, select } from 'redux-saga/effects'
 
 import { navigate } from '../../navigator'
@@ -33,7 +34,7 @@ function sagasWithClient(client) {
     }
   }
 
-  function* watchActions(): Generator<*, *, *> {
+  function* watchActions(): SagaIterator<void> {
     yield takeLatest(loadUserPlacesRequest, loadUserPlaces)
     yield takeLatest(updateUserPlacesRequest, saveUserPlace)
   }
