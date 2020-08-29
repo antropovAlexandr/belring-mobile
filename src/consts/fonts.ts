@@ -1,11 +1,15 @@
-const font = (fontFamily, fontWeight) => ({ fontFamily, fontWeight })
+import { Platform } from 'react-native'
+
+const font = (fontFamily: string, fontWeight: string) => ({ fontFamily, fontWeight })
+
+const isAndroid = Platform.OS === 'android'
 
 export const fonts = {
-  DEFAULT_NORMAL: font('sans-serif', 'normal'),
-  DEFAULT_LIGHT: font('sans-serif-light', 'normal'),
-  DEFAULT_MEDIUM: font('sans-serif-medium', 'normal'),
-  DEFAULT_SEMIBOLD: font('sans-serif-light', 'bold'),
-  DEFAULT_BOLD: font('sans-serif', 'bold'),
+  DEFAULT_NORMAL: font(isAndroid ? 'sans-serif' : 'Helvetica Neue', 'normal'),
+  DEFAULT_LIGHT: font(isAndroid ? 'sans-serif-light' : 'HelveticaNeue-Light', 'normal'),
+  DEFAULT_MEDIUM: font(isAndroid ? 'sans-serif-medium' : 'HelveticaNeue-Medium', 'normal'),
+  DEFAULT_SEMIBOLD: font(isAndroid ? 'sans-serif-light' : 'HelveticaNeue-Light', 'bold'),
+  DEFAULT_BOLD: font(isAndroid ? 'sans-serif' : 'HelveticaNeue-Bold', isAndroid ? 'bold' : 'normal'),
 
   LATO_NORMAL: font('Lato-Regular', 'normal'),
   LATO_LIGHT: font('Lato-Light', 'normal'),
