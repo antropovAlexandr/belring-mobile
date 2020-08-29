@@ -61,3 +61,7 @@ buck-out/
 *.java-version
 /fastlane/report.xml
 /.bundle/
+BelRing.app.dSYM.zip
+/ios/GoogleService-Info.plist
+android/app/google-services.json
+.env

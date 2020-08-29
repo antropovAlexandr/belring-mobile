@@ -14,9 +14,13 @@ platform :ios do
   desc 'Distributio iOS app for testing'
   lane :distribute do
     match
-    build_ios_app
+    build_ios_app(
+      scheme: 'belringMobile',
+      workspace: './ios/belringMobile.xcworkspace',
+      output_name: 'BelRing.ipa',
+    )
     firebase_app_distribution(
-      app: "1:1234567890:ios:0a1b2c3d4e5f67890"
+      app: "1:201639686445:ios:26009851c54c4d7a02a3a4",
       ipa_path: './BelRing.ipa',
     )
   end

@@ -1,5 +1,5 @@
-// export const BASE_URL = 'http://ptushki.westeurope.cloudapp.azure.com/api';
-export const BASE_URL = 'http://localhost:3001'
+export const BASE_URL = 'http://ptushki.westeurope.cloudapp.azure.com/api'
+// export const BASE_URL = 'http://localhost:3001'
 
 export const AUTH_LOGIN_ENDPOINT = '/auth/login'
 export const AUTH_LOGOUT_ENDPOINT = '/auth/logout'
