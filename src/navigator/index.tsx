@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useCallback } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
+import SplashScreen from 'react-native-splash-screen'
 
 import { userIsFirstEntrySelector, userTokenSelector } from '../screens/Login/selector'
 
-import NavigationService from './NavigationService'
+import { setRef } from './NavigationService'
 import LoginStack from './authNavigator'
 import IntroductionStack from './IntroductionNavigator'
 import { AppDrawerNavigator } from './drawerNavigation'
@@ -15,7 +16,8 @@ export default function MainNavigator() {
   const navigatorRef = useRef(null)
 
   useEffect(() => {
-    NavigationService.setRef(navigatorRef)
+    setRef(navigatorRef)
+    SplashScreen.hide()
   }, [])
 
   const getStackNavigation = useCallback(() => {

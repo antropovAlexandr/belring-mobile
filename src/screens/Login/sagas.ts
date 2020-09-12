@@ -1,8 +1,8 @@
 import { SagaIterator } from 'redux-saga';
 import { put, call, takeLatest, select, takeLeading } from 'redux-saga/effects'
 
-import { navigate } from '../../navigator'
-import { REGISTRATION_NOTIFICATION_SCREEN } from '../constants'
+import { navigate } from '../../navigator/NavigationService'
+import { PLACES, REGISTRATION_NOTIFICATION_SCREEN } from '../constants'
 
 import {
   loginUserRequest,

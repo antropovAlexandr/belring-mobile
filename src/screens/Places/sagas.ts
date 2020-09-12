@@ -1,7 +1,7 @@
-import { SagaIterator } from 'redux-saga';
+import { SagaIterator } from 'redux-saga'
 import { put, call, takeLatest, select } from 'redux-saga/effects'
 
-import { navigate } from '../../navigator'
+import { navigate } from '../../navigator/NavigationService'
 import { PLACES } from '../../screens/constants'
 import { userIdSelector } from '../Login/selector'
 

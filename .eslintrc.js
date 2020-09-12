@@ -21,7 +21,7 @@ module.exports = {
     'arrow-body-style': ['error', 'as-needed'],
     'no-console': 'error',
     'react/jsx-key': 'error',
-    'react-hooks/exhaustive-deps': 'off',
+    'react-hooks/exhaustive-deps': 'error',
     'import/order': [
       'error',
       {
