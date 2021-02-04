@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import FormFieldWithDropdown from '../../../components/FormFieldWithDropdown'
 import FormFieldWithTextInput from '../../../components/FormFieldWithTextInput'
-import { MAP_SCREEN } from '../../constants'
+import PATHS from '../../constants'
 import { formatCoordinateToString } from '../../../helper/formatter'
 
 import { FIELD_NAME } from './constants'
@@ -20,9 +20,9 @@ const AddPlaceView = ({ form, onPressNewLocation, navigation, values, isSave }) 
     () =>
       getLocationItems(
         t,
-        (coords) => form.mutators.setFormValue(LOCATION_COORDINATE, coords),
+        ({ coords }) => form.mutators.setFormValue(LOCATION_COORDINATE, coords),
         () =>
-          navigation.navigate(MAP_SCREEN, {
+          navigation.navigate(PATHS.MAP_SCREEN, {
             setCoordinateToForm: (coords) => form.mutators.setFormValue(LOCATION_COORDINATE, coords),
             initialCoordinate: values[LOCATION_COORDINATE],
             screenName: t('places.screenTitle'),

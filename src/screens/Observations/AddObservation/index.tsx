@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import arrayMutators from 'final-form-arrays'
 
 import Wizard from '../../../components/Wizard'
-import { OBSERVATION_CREATED } from '../../constants'
+import PATHS from '../../constants'
 import { addObservationRequest, loadInitialDataRequest } from '../reducer'
 import { getLanguage } from '../../../i18n'
 
@@ -34,12 +34,12 @@ const AddObservation = ({ route, navigation }) => {
 
   useEffect(() => {
     dispatch(loadInitialDataRequest(lang))
-  }, [lang])
+  }, [dispatch, lang])
 
   const onSubmit = (values, { reset }) => {
     const successAction = () => {
       reset()
-      navigation.navigate(OBSERVATION_CREATED, { values })
+      navigation.navigate(PATHS.OBSERVATION_CREATED, { values })
     }
     const observation = createObservationAdapter(values)
     dispatch(addObservationRequest(observation, successAction))

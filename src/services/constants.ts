@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://ptushki.westeurope.cloudapp.azure.com/api'
+export const BASE_URL = 'https://api.belring.net'
 // export const BASE_URL = 'http://localhost:3001'
 
 export const AUTH_LOGIN_ENDPOINT = '/auth/login'
@@ -12,5 +12,5 @@ export const UPDATE_EMAIL = '/update-email'
 export const UPDATE_PASSWORD = '/update-password'
 export const UPDATE_PERSONAL_DATA = '/update-personal-data'
 export const UPDATE_PLACES = '/update-places'
-export const DELETE_OBSERVATIONS_ENDPOINT = (id: string): string => `/observations/${id}`
+// export const DELETE_OBSERVATIONS_ENDPOINT = (id: string): string => `/observations/${id}`
 export const USER = '/users'

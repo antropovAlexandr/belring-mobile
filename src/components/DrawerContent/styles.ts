@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   drawerItem: {
     color: colors.blue,
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontSize: 14,
     letterSpacing: 0.25,
     lineHeight: 20,

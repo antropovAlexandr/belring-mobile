@@ -11,16 +11,7 @@ import AddObservation from '../screens/Observations/AddObservation'
 import Settings from '../screens/Settings'
 import AboutApp from '../screens/AboutApp'
 import Header from '../components/Header'
-import {
-  ADD_OBSERVATION,
-  OBSERVATION_CREATED,
-  ADD_PLACE,
-  MAP_SCREEN,
-  PLACES,
-  OBSERVATIONS_SCREEN,
-  SETTINGS_SCREEN,
-  ABOUT_APP_SCREEN,
-} from '../screens/constants'
+import PATHS from '../screens/constants'
 
 import { defaultConfig } from './configs'
 
@@ -31,7 +22,7 @@ const AppStack = () => {
 
   return (
     <Stack.Navigator
-      initialRouteName={OBSERVATIONS_SCREEN}
+      initialRouteName={PATHS.OBSERVATIONS_SCREEN}
       animation='fade'
       headerMode='screen'
       screenOptions={{
@@ -42,7 +33,7 @@ const AppStack = () => {
       }}
     >
       <Stack.Screen
-        name={OBSERVATIONS_SCREEN}
+        name={PATHS.OBSERVATIONS_SCREEN}
         component={Observations}
         options={{
           title: t('addEditObservation.screenTitle'),
@@ -50,7 +41,7 @@ const AppStack = () => {
         }}
       />
       <Stack.Screen
-        name={ADD_OBSERVATION}
+        name={PATHS.ADD_OBSERVATION}
         component={AddObservation}
         options={{
           title: t('addEditObservation.newObservationTitle'),
@@ -58,14 +49,14 @@ const AppStack = () => {
         }}
       />
       <Stack.Screen
-        name={OBSERVATION_CREATED}
+        name={PATHS.OBSERVATION_CREATED}
         component={ObservationCreated}
         initialParams={{
           title: t('addEditObservation.screenTitle'),
         }}
       />
       <Stack.Screen
-        name={PLACES}
+        name={PATHS.PLACES}
         component={Places}
         options={{
           title: t('places.screenTitle'),
@@ -73,16 +64,16 @@ const AppStack = () => {
         }}
       />
       <Stack.Screen
-        name={ADD_PLACE}
+        name={PATHS.ADD_PLACE}
         component={AddPlace}
         options={{
           title: t('places.screenTitle'),
           isShowMenu: true,
         }}
       />
-      <Stack.Screen name={MAP_SCREEN} component={MapScreen} />
+      <Stack.Screen name={PATHS.MAP_SCREEN} component={MapScreen} />
       <Stack.Screen
-        name={SETTINGS_SCREEN}
+        name={PATHS.SETTINGS_SCREEN}
         component={Settings}
         options={{
           title: t('settings.screenTitle'),
@@ -90,7 +81,7 @@ const AppStack = () => {
         }}
       />
       <Stack.Screen
-        name={ABOUT_APP_SCREEN}
+        name={PATHS.ABOUT_APP_SCREEN}
         component={AboutApp}
         options={{
           title: t('aboutApp.screenTitle'),

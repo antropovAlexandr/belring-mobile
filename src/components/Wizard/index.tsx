@@ -24,7 +24,7 @@ const Wizard = ({ children, onSubmit, formProps, renderFooter }) => {
 
   const handlePrevious = useCallback(() => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 0))
-  }, [children])
+  }, [])
 
   const validate = useCallback(
     (values) => {

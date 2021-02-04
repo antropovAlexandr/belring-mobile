@@ -1,8 +1,8 @@
-import { SagaIterator } from 'redux-saga';
+import { SagaIterator } from 'redux-saga'
 import { put, call, takeLatest, select, takeLeading } from 'redux-saga/effects'
 
 import { navigate } from '../../navigator/NavigationService'
-import { PLACES, REGISTRATION_NOTIFICATION_SCREEN } from '../constants'
+import PATHS from '../constants'
 
 import {
   loginUserRequest,
@@ -61,6 +61,7 @@ function sagasWithClient(client) {
       const { token, refreshToken, user } = yield call(client.logIn, { email, password })
       const { id, role, firstName, lastName } = user
       yield put(loginUserSuccess({ token, refreshToken, id, role, email: user.email, firstName, lastName }))
+      yield call(navigate, PATHS.PLACES, {})
     } catch (e) {
       yield put(userFailure(e))
     }
@@ -69,15 +70,16 @@ function sagasWithClient(client) {
   function* registration({ payload }) {
     const { email, password, firstName, lastName, phone } = payload
     try {
-      const { token, refreshToken } = yield call(client.registration, {
+      const { token, refreshToken, user } = yield call(client.registration, {
         email,
         password,
         firstName,
         lastName,
         phone,
       })
-      yield put(registrationUserSuccess(token, refreshToken))
-      yield call(navigate, REGISTRATION_NOTIFICATION_SCREEN, { origin: 'registration' })
+      yield put(registrationUserSuccess({ token, refreshToken, ...user }))
+      yield put(loginUserSuccess({ token, refreshToken, ...user }))
+      yield call(navigate, PATHS.REGISTRATION_NOTIFICATION_SCREEN, { origin: 'registration' })
     } catch (e) {
       yield put(userFailure(e))
     }
@@ -88,7 +90,7 @@ function sagasWithClient(client) {
     try {
       yield call(client.resetPassword, { email })
       yield put(resetPasswordSuccess())
-      yield call(navigate, REGISTRATION_NOTIFICATION_SCREEN, { origin: 'passwordRecovery' })
+      yield call(navigate, PATHS.REGISTRATION_NOTIFICATION_SCREEN, { origin: 'passwordRecovery' })
     } catch (e) {
       yield put(userFailure(e))
     }

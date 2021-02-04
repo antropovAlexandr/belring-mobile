@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { images } from 'Consts'
 
 import { checkEmailIsValid, checkPasswordIsValid } from '../../helper/validation'
-import { REGISTRATION_SCREEN, PASSWORD_RECOVERY, ABOUT_APP_SCREEN } from '../constants'
+import PATHS from '../constants'
 
 import LoginView from './LoginView'
 import { loginUserRequest } from './reducer'
@@ -17,27 +17,31 @@ export default memo(({ navigation }: Props) => {
   const { t } = useTranslation()
 
   const onPressRegistration = useCallback(() => {
-    navigation.navigate(REGISTRATION_SCREEN)
-  }, [])
+    navigation.navigate(PATHS.REGISTRATION_SCREEN)
+  }, [navigation])
 
   const onPressResetPassword = useCallback(() => {
-    navigation.navigate(PASSWORD_RECOVERY)
-  }, [])
+    navigation.navigate(PATHS.PASSWORD_RECOVERY)
+  }, [navigation])
 
   const navigateToAboutApp = useCallback(() => {
-    navigation.navigate(ABOUT_APP_SCREEN)
-  }, [])
+    navigation.navigate(PATHS.ABOUT_APP_SCREEN)
+  }, [navigation])
 
-  const validation = useCallback((values) => {
-    const errors = {}
-    if (!checkEmailIsValid(values[EMAIL_INPUT_NAME])) errors[EMAIL_INPUT_NAME] = t('validationError.email')
-    if (!checkPasswordIsValid(values[PASSWORD_INPUT_NAME])) errors[PASSWORD_INPUT_NAME] = t('validationError.password')
-    return errors
-  }, [])
+  const validation = useCallback(
+    (values) => {
+      const errors = {}
+      if (!checkEmailIsValid(values[EMAIL_INPUT_NAME])) errors[EMAIL_INPUT_NAME] = t('validationError.email')
+      if (!checkPasswordIsValid(values[PASSWORD_INPUT_NAME]))
+        errors[PASSWORD_INPUT_NAME] = t('validationError.password')
+      return errors
+    },
+    [t]
+  )
 
   const onSubmit = useCallback(
     (values) => dispatch(loginUserRequest({ email: values[EMAIL_INPUT_NAME], password: values[PASSWORD_INPUT_NAME] })),
-    []
+    [dispatch]
   )
 
   return (

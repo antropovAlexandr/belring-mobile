@@ -10,6 +10,7 @@ export default ({ onPressPrevious, onPressNext, isLastPage, isFirstPage }) => {
   const { t } = useTranslation()
   const btnTitle = useMemo(() => (isLastPage ? t('addEditObservation.publish') : t('addEditObservation.next')), [
     isLastPage,
+    t,
   ])
   return (
     <View style={styles.container}>

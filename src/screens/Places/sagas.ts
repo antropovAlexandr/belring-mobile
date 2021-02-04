@@ -2,7 +2,8 @@ import { SagaIterator } from 'redux-saga'
 import { put, call, takeLatest, select } from 'redux-saga/effects'
 
 import { navigate } from '../../navigator/NavigationService'
-import { PLACES } from '../../screens/constants'
+import PATHS from '../../screens/constants'
+import { Place } from '../../types'
 import { userIdSelector } from '../Login/selector'
 
 import {
@@ -14,7 +15,7 @@ import {
 } from './reducer'
 
 function sagasWithClient(client) {
-  function* loadUserPlaces({ payload }) {
+  function* loadUserPlaces({ payload }: { payload: string }) {
     try {
       const { places } = yield call(client.getUser, { userId: payload })
       yield put(loadUserPlacesSuccess(places))
@@ -23,12 +24,12 @@ function sagasWithClient(client) {
     }
   }
 
-  function* saveUserPlace({ payload }) {
+  function* saveUserPlace({ payload }: { payload: Place[] }) {
     try {
       const id = yield select(userIdSelector)
       yield call(client.setPlaces, { userId: id, places: payload })
       yield put(updateUserPlacesSuccess())
-      yield call(navigate, PLACES)
+      yield call(navigate, PATHS.PLACES, {})
     } catch (e) {
       yield put(userPlacesFailure(e))
     }

@@ -21,7 +21,7 @@ const ErrorModal = () => {
     return t(`backendError.${error.code}`) !== `backendError.${error.code}`
       ? t(`backendError.${error.code}`)
       : error.message
-  }, [error])
+  }, [error, t])
 
   useEffect(() => {
     setVisible(error?.id !== currentErrorId)
@@ -30,7 +30,7 @@ const ErrorModal = () => {
   const onPressOk = useCallback(() => {
     currentErrorId = error?.id
     setVisible(false)
-  }, [])
+  }, [error?.id])
 
   if (!error || !error.message) return null
 

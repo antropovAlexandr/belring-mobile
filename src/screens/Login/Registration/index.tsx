@@ -27,17 +27,10 @@ export default memo(({ navigation }: Props) => {
     navigation.goBack()
   }, [navigation])
 
-  return (
-    <Form
-      onSubmit={({ email, password, firstName, lastName, phone }) =>
-        dispatch(registrationUserRequest({ email, password, firstName, lastName, phone }))
-      }
-      validate={validation}
-      render={({ handleSubmit }) => (
-        <RegistrationView onPressRegistration={handleSubmit} onPressBack={handleNavigateBack} />
-      )}
-    />
-  )
+  const handleFormSubmit = ({ email, password, firstName, lastName, phone }) =>
+    dispatch(registrationUserRequest({ email, password, firstName, lastName, phone }))
+
+  return <RegistrationView handleFormSubmit={handleFormSubmit} onPressBack={handleNavigateBack} />
 })
 
 interface Props {

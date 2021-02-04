@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
 import { images } from 'Consts'
 
-import { LOGIN_SCREEN } from '../../constants'
+import PATHS from '../../constants'
 
 import styles from './styles'
 
@@ -13,7 +13,7 @@ const RegistrationNotification = ({ route, navigation }) => {
   const { t } = useTranslation()
 
   const handleNavigateToLoginScreen = useCallback(() => {
-    navigation.navigate(LOGIN_SCREEN)
+    navigation.navigate(PATHS.PLACES)
   }, [navigation])
 
   return (

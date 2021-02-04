@@ -26,10 +26,13 @@ export default memo(({ navigation, route }: Props) => {
 
   const dispatch = useDispatch()
   const userPlaces = useSelector(placesSelector)
-  const onSubmit = useCallback((values) => {
-    const places = getPlacesForUpdate(values, userPlaces, placeId)
-    dispatch(updateUserPlacesRequest({ places }))
-  }, [])
+  const onSubmit = useCallback(
+    (values) => {
+      const places = getPlacesForUpdate(values, userPlaces, placeId)
+      dispatch(updateUserPlacesRequest({ places }))
+    },
+    [dispatch, placeId, userPlaces]
+  )
 
   return (
     <Form

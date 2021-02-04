@@ -1,38 +1,40 @@
 import React, { ReactNode, FunctionComponent } from 'react'
 import { TextInput, HelperText } from 'react-native-paper'
 import { Field } from 'react-final-form'
-import { View, StyleProp, ViewStyle, } from 'react-native'
+import { View, StyleProp, ViewStyle } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
 type TextInputProps = React.ComponentProps<typeof TextInput>
 
 type FormFieldWithTextInputProps = Partial<TextInputProps> & {
-    name: string;
-    format?: () => void;
-    showIcon?: boolean;
-    Icon?: ReactNode;
-    style?: StyleProp<ViewStyle>;
-    inputStyle?: StyleProp<ViewStyle>;
-};
+  name: string
+  format?: () => void
+  showIcon?: boolean
+  Icon?: ReactNode
+  style?: StyleProp<ViewStyle>
+  inputStyle?: StyleProp<ViewStyle>
+}
 
 const FormFieldWithTextInput: FunctionComponent<FormFieldWithTextInputProps> = ({
-    name,
-    format,
-    style,
-    inputStyle,
-    label,
-    mode,
-    right,
-    secureTextEntry
+  name,
+  format,
+  style,
+  inputStyle,
+  label,
+  mode,
+  right,
+  secureTextEntry,
+  autoCapitalize,
 }) => {
   const { t } = useTranslation()
 
-    const inputProps = {
-        label,
-        mode,
-        right,
-        secureTextEntry
-    };
+  const inputProps = {
+    label,
+    mode,
+    right,
+    secureTextEntry,
+    autoCapitalize,
+  }
 
   return (
     <Field
@@ -41,7 +43,7 @@ const FormFieldWithTextInput: FunctionComponent<FormFieldWithTextInputProps> = (
         const isError = !!meta.error && meta.touched
         return (
           <View style={style}>
-            <TextInput {...input} {...inputProps} style={inputStyle} error={isError} />
+            <TextInput {...input} {...inputProps} style={inputStyle} error={isError} returnKeyType='next' />
             <HelperText type='error' visible={isError}>
               {t(meta.error)}
             </HelperText>

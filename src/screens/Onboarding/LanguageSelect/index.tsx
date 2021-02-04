@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { StackNavigationProp } from '@react-navigation/stack'
 
 import { LANG_TYPES, setLanguage } from '../../../i18n'
-import { INTRODUCTION_SCREEN } from '../../constants'
+import PATHS from '../../constants'
 
 import { styles } from './styles'
 
@@ -14,10 +14,10 @@ export default memo(({ navigation }: Props) => {
 
   const onChangeLanguage = useCallback(
     (language) => {
-      navigation.navigate(INTRODUCTION_SCREEN)
+      navigation.navigate(PATHS.INTRODUCTION_SCREEN)
       setLanguage(language)
     },
-    [setLanguage]
+    [navigation]
   )
 
   return (

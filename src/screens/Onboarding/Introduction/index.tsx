@@ -29,13 +29,13 @@ const Introduction = () => {
 
   const onPressClose = useCallback(() => {
     navigateToLoginScreen()
-  }, [])
+  }, [navigateToLoginScreen])
 
   const onPressNext = useCallback(() => {
     if (sliderIndex >= MAX_COUNT_SLIDER_ITEMS - 1) {
       navigateToLoginScreen()
     } else goNextSlide()
-  }, [sliderIndex])
+  }, [goNextSlide, navigateToLoginScreen, sliderIndex])
 
   return (
     <View style={styles.container}>

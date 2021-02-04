@@ -20,7 +20,7 @@ const MapScreenView = ({ setCoordinateToForm, initialCoordinate }) => {
   const handleSelectPoint = useCallback(() => {
     setCoordinatePoint(null)
     setCoordinateToForm(null)
-  }, [])
+  }, [setCoordinateToForm])
 
   return (
     <MapboxGL.MapView style={styles.mapbox} onPress={onPress} compassEnabled>

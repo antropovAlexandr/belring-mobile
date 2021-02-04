@@ -1,24 +1,29 @@
-import Geolocation from '@react-native-community/geolocation'
+import Geolocation, { GeolocationResponse } from '@react-native-community/geolocation'
+import { TFunction } from 'i18next'
 
 import { LOCATION_ITEMS, FIELD_NAME } from './constants'
 
 const { LOCATION_NAME, LOCATION_COORDINATE } = FIELD_NAME
 const { GEO_POSITION, ON_MAP } = LOCATION_ITEMS
 
-export const getLocationItems = (translate, onPressCurrentGeoPosition, onPressMap) => [
+export const getLocationItems = (
+  translate: TFunction,
+  onPressCurrentGeoPosition: (position: GeolocationResponse) => void,
+  onPressMap: () => void
+) => [
   {
     id: GEO_POSITION,
     label: translate('places.currentGeoPosition'),
     value: GEO_POSITION,
     icon: 'crosshairs-gps',
-    onPress: () => Geolocation.getCurrentPosition(({ coords }) => onPressCurrentGeoPosition(coords)),
+    onPress: () => Geolocation.getCurrentPosition(({ coords }) => onPressCurrentGeoPosition({ coords })),
   },
   {
     id: ON_MAP,
     label: translate('places.locationOnMap'),
     value: ON_MAP,
     icon: 'map',
-    onPress: () => onPressMap(),
+    onPress: onPressMap,
   },
 ]
 
