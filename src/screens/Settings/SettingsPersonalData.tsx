@@ -19,11 +19,18 @@ const SettingsPersonalData = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const { firstName, lastName } = useSelector(userDataSelector)
-  const onSubmit = useCallback((values) => {
-    dispatch(
-      updateUserPersonalDataRequest({ firsName: values[FIRST_NAME], lastName: values[LAST_NAME], phone: values[PHONE] })
-    )
-  }, [])
+  const onSubmit = useCallback(
+    (values) => {
+      dispatch(
+        updateUserPersonalDataRequest({
+          firsName: values[FIRST_NAME],
+          lastName: values[LAST_NAME],
+          phone: values[PHONE],
+        })
+      )
+    },
+    [dispatch]
+  )
 
   return (
     <Form

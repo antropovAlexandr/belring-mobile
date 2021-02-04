@@ -10,7 +10,7 @@ import MainNavigator from 'Navigator'
 import { store, persistor } from 'Store'
 import { paperTheme, colors } from 'Consts'
 
-import i18 from './src/i18n'
+import i18 from './i18n'
 
 const App = () => (
   <Provider store={store}>

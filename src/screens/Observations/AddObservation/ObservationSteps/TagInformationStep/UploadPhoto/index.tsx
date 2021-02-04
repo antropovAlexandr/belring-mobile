@@ -24,7 +24,7 @@ export default ({ fields, index, input, onPressPreview }) => {
         fields.push(undefined)
       }
     })
-  }, [fields])
+  }, [fields, onChange])
 
   const onShowDeleteModal = useCallback(() => {
     setIsDelete(true)
@@ -33,7 +33,7 @@ export default ({ fields, index, input, onPressPreview }) => {
     setIsDelete(false)
     onChange(null)
     fields.remove(index)
-  }, [fields, index])
+  }, [fields, index, onChange])
   const onHideDeleteModal = useCallback(() => {
     setIsDelete(false)
   }, [])

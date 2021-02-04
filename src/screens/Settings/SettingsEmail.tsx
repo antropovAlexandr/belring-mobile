@@ -20,9 +20,12 @@ const SettingsEmail = () => {
   const dispatch = useDispatch()
   const { email } = useSelector(userDataSelector)
 
-  const onSubmit = useCallback((values) => {
-    dispatch(updateUserEmailRequest({ email: values[EMAIL], password: values[PASSWORD] }))
-  }, [])
+  const onSubmit = useCallback(
+    (values) => {
+      dispatch(updateUserEmailRequest({ email: values[EMAIL], password: values[PASSWORD] }))
+    },
+    [dispatch]
+  )
 
   return (
     <Form

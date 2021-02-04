@@ -37,7 +37,12 @@ const LoginView: FunctionComponent<LoginViewProps> = ({
         <TouchableOpacity style={styles.infoImgContainer} onPress={navigateToAboutApp} activeOpacity={0.8}>
           <Icon name='information-outline' style={styles.infoIcon} />
         </TouchableOpacity>
-        <FormFieldWithTextInput name={EMAIL_INPUT_NAME} label={t('login.email')} mode='outlined' />
+        <FormFieldWithTextInput
+          name={EMAIL_INPUT_NAME}
+          label={t('login.email')}
+          mode='outlined'
+          autoCapitalize='none'
+        />
         <FormFieldWithTextInput
           name={PASSWORD_INPUT_NAME}
           label={t('login.password')}

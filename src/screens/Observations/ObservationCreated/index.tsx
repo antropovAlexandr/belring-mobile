@@ -3,7 +3,7 @@ import { ScrollView, Text, View } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import { Button } from 'react-native-paper'
 
-import { ADD_OBSERVATION } from '../../constants'
+import PATHS from '../../constants'
 import { FIELD_NAME } from '../AddObservation/constants'
 
 import styles from './styles'
@@ -24,7 +24,7 @@ const ObservationCreated = ({ route, navigation }) => {
   const { t } = useTranslation()
 
   const handleNavigateWithBirdInfo = useCallback(() => {
-    navigation.navigate(ADD_OBSERVATION, {
+    navigation.navigate(PATHS.ADD_OBSERVATION, {
       initialValues: {
         [TYPE_OF_BIRD]: values[TYPE_OF_BIRD],
         [BIRD_SEX]: values[BIRD_SEX],
@@ -33,17 +33,17 @@ const ObservationCreated = ({ route, navigation }) => {
         [BIRD_STATUS]: values[BIRD_STATUS],
       },
     })
-  }, [navigation])
+  }, [navigation, values])
 
   const handleNavigateWithLocationInfo = useCallback(() => {
-    navigation.navigate(ADD_OBSERVATION, {
+    navigation.navigate(PATHS.ADD_OBSERVATION, {
       initialValues: {
         [LOCATION_CONDITION]: values[LOCATION_CONDITION],
         [PLACE]: values[PLACE],
         [COORDINATE_ACCURACY]: values[COORDINATE_ACCURACY],
       },
     })
-  }, [navigation])
+  }, [navigation, values])
 
   return (
     <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>

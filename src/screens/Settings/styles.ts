@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
   },
   title: {
     color: black087,
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0.15,
   },
   label: {
     color: black06,
-    fontFamily: 'Roboto',
+    fontFamily: 'System',
     fontSize: 12,
     padding: 0,
     marginTop: 10,

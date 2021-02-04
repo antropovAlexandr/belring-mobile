@@ -8,10 +8,11 @@ import DateTimePicker from '@react-native-community/datetimepicker'
 import FormFieldWithDropdown from '../../../../components/FormFieldWithDropdown'
 import FormFieldWithTextInput from '../../../../components/FormFieldWithTextInput'
 import { formatCoordinateToString, formatDateToString, formatLabelByValue } from '../../../../helper/formatter'
+import { Place, UserPlace } from '../../../../types'
 import { getLocationItems } from '../../../Places/AddPlace/utils'
 import { observationsInitialDataSelector } from '../../selector'
 import { placesSelector } from '../../../Places/selector'
-import { MAP_SCREEN } from '../../../constants'
+import PATHS from '../../../constants'
 import { FIELD_NAME } from '../constants'
 import styles from '../styles'
 
@@ -20,7 +21,7 @@ const { LOCATION_CONDITION, PLACE, COORDINATE_ACCURACY, DATE, DATE_ACCURACY } = 
 let selectedDate = null
 const currentDate = new Date()
 
-const convertUserPlaceToLocationItems = (userPlaces, setFormValue) => {
+const convertUserPlaceToLocationItems = (userPlaces: UserPlace[], setFormValue) => {
   if (!userPlaces || !userPlaces.length) return []
   return userPlaces.map(({ latitude, longitude, id, customName }) => {
     const coordinate = { latitude, longitude }
@@ -45,11 +46,14 @@ const ObstaclesInformationStep = ({ form, navigation, values }) => {
     []
   )
 
-  const onChangeDate = useCallback((event, date) => {
-    selectedDate = date || selectedDate
-    setShowDatePicker(false)
-    form.mutators.setFormValue(DATE, selectedDate)
-  }, [])
+  const onChangeDate = useCallback(
+    (event, date) => {
+      selectedDate = date || selectedDate
+      setShowDatePicker(false)
+      form.mutators.setFormValue(DATE, selectedDate)
+    },
+    [form.mutators]
+  )
 
   const dateFormatter = useCallback((value) => (value ? formatDateToString(value) : null), [])
 
@@ -57,9 +61,9 @@ const ObstaclesInformationStep = ({ form, navigation, values }) => {
     () => [
       ...getLocationItems(
         t,
-        (coords) => form.mutators.setFormValue(PLACE, coords),
+        ({ coords }) => form.mutators.setFormValue(PLACE, coords),
         () =>
-          navigation.navigate(MAP_SCREEN, {
+          navigation.navigate(PATHS.MAP_SCREEN, {
             setCoordinateToForm: (coords) => form.mutators.setFormValue(PLACE, coords),
             initialCoordinate: values[PLACE],
             screenName: t('addEditObservation.newObservationTitle'),

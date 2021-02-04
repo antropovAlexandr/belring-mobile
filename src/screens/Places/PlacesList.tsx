@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { formatCoordinateToString } from '../../helper/formatter'
 import Fab from '../../components/Fab'
-import { ADD_PLACE } from '../constants'
+import PATHS from '../constants'
 
 import styles from './styles'
 
@@ -25,7 +25,7 @@ const PlacesList = ({ places, navigation }) => {
               description={formatCoordinateToString({ latitude, longitude })}
               right={(props) => <List.Icon {...props} icon='chevron-right' />}
               onPress={() =>
-                navigation.navigate(ADD_PLACE, { locationName: customName, latitude, longitude, placeId: id })
+                navigation.navigate(PATHS.ADD_PLACE, { locationName: customName, latitude, longitude, placeId: id })
               }
             />
           ))}

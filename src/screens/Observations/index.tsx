@@ -18,7 +18,7 @@ export default memo(({ navigation }: Props) => {
   useFocusEffect(
     useCallback(() => {
       dispatch(loadObservationsRequest())
-    }, [])
+    }, [dispatch])
   )
 
   if (loading) return null

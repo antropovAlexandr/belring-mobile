@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 import { getUserRoleNameByType } from '../../screens/Login/utils'
 import { blue } from '../../consts/colors'
-import { ABOUT_APP_SCREEN, OBSERVATIONS_SCREEN, PLACES, SETTINGS_SCREEN } from '../../screens/constants'
+import PATHS from '../../screens/constants'
 import { logoutUserRequest } from '../../screens/Login/reducer'
 import { userFirstNameSelector, userLastNameSelector, userRoleSelector } from '../../screens/Login/selector'
 
@@ -32,11 +32,11 @@ export function DrawerContent({ progress, navigation }) {
   const role = useSelector(userRoleSelector)
 
   const userRoleName = useMemo(() => getUserRoleNameByType(role), [role])
-  const hideDrawer = useCallback(() => navigation.toggleDrawer(), [])
-  const handleNavigateToObservations = useCallback(() => navigation.navigate(OBSERVATIONS_SCREEN), [navigation])
-  const handleNavigateToPlaces = useCallback(() => navigation.navigate(PLACES), [navigation])
-  const handleNavigateToSetting = useCallback(() => navigation.navigate(SETTINGS_SCREEN), [navigation])
-  const handleNavigateToAboutApp = useCallback(() => navigation.navigate(ABOUT_APP_SCREEN), [navigation])
+  const hideDrawer = useCallback(() => navigation.toggleDrawer(), [navigation])
+  const handleNavigateToObservations = useCallback(() => navigation.navigate(PATHS.OBSERVATIONS_SCREEN), [navigation])
+  const handleNavigateToPlaces = useCallback(() => navigation.navigate(PATHS.PLACES), [navigation])
+  const handleNavigateToSetting = useCallback(() => navigation.navigate(PATHS.SETTINGS_SCREEN), [navigation])
+  const handleNavigateToAboutApp = useCallback(() => navigation.navigate(PATHS.ABOUT_APP_SCREEN), [navigation])
   const handleLogout = useCallback(() => dispatch(logoutUserRequest()), [dispatch])
 
   return (

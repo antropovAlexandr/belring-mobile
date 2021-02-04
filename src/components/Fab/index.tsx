@@ -3,18 +3,18 @@ import React, { memo, useMemo, useState } from 'react'
 import { FAB } from 'react-native-paper'
 import { useTranslation } from 'react-i18next'
 
-import { ADD_OBSERVATION, ADD_PLACE } from '../../screens/constants'
+import PATHS from '../../screens/constants'
 
 const getActionsByNavigation = (navigation: StackNavigationProp<any>, translate: (key: string) => string) => [
   {
     icon: 'map-marker',
     label: translate('places.addNewPlace'),
-    onPress: () => navigation.navigate(ADD_PLACE),
+    onPress: () => navigation.navigate(PATHS.ADD_PLACE),
   },
   {
     icon: 'binoculars',
     label: translate('addEditObservation.navHeaderTitleAdd'),
-    onPress: () => navigation.navigate(ADD_OBSERVATION),
+    onPress: () => navigation.navigate(PATHS.ADD_OBSERVATION),
   },
 ]
 

@@ -13,7 +13,7 @@ const PreviewPhoto = ({ images, onPressClose, setShowFooter }) => {
   useEffect(() => {
     setShowFooter(false)
     return () => setShowFooter(true)
-  }, [])
+  }, [setShowFooter])
 
   return (
     <View style={styles.container}>

@@ -24,6 +24,7 @@ const PasswordRecoveryView = ({ onPressBack, onPressResetPassword }) => {
           component={TextInput}
           label={t('passwordRecovery.email')}
           mode='outlined'
+          autoCapitalize='none'
         />
         <Button mode='contained' onPress={onPressResetPassword}>
           {t('passwordRecovery.sendNewPassword')}

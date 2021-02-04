@@ -19,7 +19,7 @@ export default memo(({ navigation }: Props) => {
   useFocusEffect(
     useCallback(() => {
       if (id) dispatch(loadUserPlacesRequest(id))
-    }, [id])
+    }, [dispatch, id])
   )
 
   if (loading) return null

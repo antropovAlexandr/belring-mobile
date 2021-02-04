@@ -18,9 +18,12 @@ const SettingsPassword = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
 
-  const onSubmit = useCallback((values) => {
-    dispatch(updateUserPasswordRequest({ password: values[OLD_PASSWORD], newPassword: values[NEW_PASSWORD] }))
-  }, [])
+  const onSubmit = useCallback(
+    (values) => {
+      dispatch(updateUserPasswordRequest({ password: values[OLD_PASSWORD], newPassword: values[NEW_PASSWORD] }))
+    },
+    [dispatch]
+  )
 
   return (
     <Form
